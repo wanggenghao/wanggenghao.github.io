@@ -6,7 +6,9 @@
     <content><![CDATA[<h2 id="Bond简介"><a href="#Bond简介" class="headerlink" title="Bond简介"></a>Bond简介</h2><p>网卡Bond是通过多张网卡绑定为一个逻辑网卡,实现本地网卡的冗余,带宽扩展和负载均衡。</p>
 <h2 id="Bond模式（常用的三种模式）"><a href="#Bond模式（常用的三种模式）" class="headerlink" title="Bond模式（常用的三种模式）"></a>Bond模式（常用的三种模式）</h2><p>1）mode=0(balance-rr):平衡负载模式，有自动备援，但需要”Switch”支援及设定。 </p>
 <p>2）mode=1(active-backup):自动备援模式，其中一条线若断线，其他线路将会自动备援。</p>
-<h2 id="3-mode-6-balance-alb-平衡负载模式，有自动备援，不必”Switch”支援及设定。"><a href="#3-mode-6-balance-alb-平衡负载模式，有自动备援，不必”Switch”支援及设定。" class="headerlink" title="3) mode=6(balance-alb):平衡负载模式，有自动备援，不必”Switch”支援及设定。"></a>3) mode=6(balance-alb):平衡负载模式，有自动备援，不必”Switch”支援及设定。</h2><p><a href="http://www.deephug.wang">跳转首页</a></p>
+<p>3) mode=6(balance-alb):平衡负载模式，有自动备援，不必”Switch”支援及设定。</p>
+<hr>
+<p><a href="http://www.deephug.wang">跳转首页</a></p>
 ]]></content>
       <categories>
         <category>Linux</category>
