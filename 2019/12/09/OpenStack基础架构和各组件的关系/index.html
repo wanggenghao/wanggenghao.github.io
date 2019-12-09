@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https:&#x2F;&#x2F;timgsa.baidu.com&#x2F;timg?image&amp;quality&#x3D;80&amp;size&#x3D;b9999_10000&amp;sec&#x3D;1575879941397&amp;di&#x3D;8561cf8416d07d5af0aa406b95bb6957&amp;imgtype&#x3D;0&amp;src&#x3D;http%3A%2F%2Fupload.idcquan.com%2F2016%2F1122%2F1479779990934.jpg">
 <meta property="og:image" content="https:&#x2F;&#x2F;img2018.cnblogs.com&#x2F;blog&#x2F;1311506&#x2F;201809&#x2F;1311506-20180928193331112-1621290982.png">
-<meta property="og:updated_time" content="2019-12-09T07:55:19.220Z">
+<meta property="og:updated_time" content="2019-12-09T07:58:29.298Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;timgsa.baidu.com&#x2F;timg?image&amp;quality&#x3D;80&amp;size&#x3D;b9999_10000&amp;sec&#x3D;1575879941397&amp;di&#x3D;8561cf8416d07d5af0aa406b95bb6957&amp;imgtype&#x3D;0&amp;src&#x3D;http%3A%2F%2Fupload.idcquan.com%2F2016%2F1122%2F1479779990934.jpg">
 
@@ -394,7 +394,7 @@
 <p><strong>存储节点架构</strong><br>存储节点包含Cinder，Swift等服务<br>Cinder：块存储服务，提供相应的块存储，简单来说，就是虚拟出一块磁盘，可以挂载到相应的虚拟机之上，不受文件系统等因素影响，对虚拟机来说，这个操作就像是新加了一块硬盘，可以完成对磁盘的任何操作，包括挂载，卸载，格式化，转换文件系统等等操作，大多应用于虚拟机空间不足的情况下的空间扩容等等</p>
 <p>Swift：对象存储服务，提供相应的对象存储，简单来说，就是虚拟出一块磁盘空间，可以在这个空间当中存放文件，也仅仅只能存放文件，不能进行格式化，转换文件系统，大多应用于云磁盘/文件</p>
 <h2 id="OpenStack各组件作用"><a href="#OpenStack各组件作用" class="headerlink" title="OpenStack各组件作用"></a>OpenStack各组件作用</h2><p><strong>一、Horizon- (Dashboard)模块</strong><br>作用：主要负责为Openstack用户提供UI服务，即管理控制台。在管理控制台的操作转换为后端API的调用。面向云管理员和普通用户。</p>
-<p><strong><em>二、Keystone-身份服务模块</em></strong><br>Keystone采用两种授权方式，一种基于用户名/密码，另一种基于令牌（Token）。<br>①几个基本概念：<br>用户：代表可以通过Keystone进行访问的人或程序，用户通过认证信息(如密码、API keys等)进行验证。<br>租户：它是各个服务中的一些可以访问的资源的集合<br>角色：它代表一组用户可以访问的资源的权限<br>②对访问请求的控制<br>访问的对象：<br>1.Service：即服务，如Nova、Glance、Swift。服务在KeyStone进行注册。<br>2.Endpoint：可以理解它是一个服务暴露出来的访问点。如果需要一个访问一个服务则必须知道他的endpoint。<br>3.Token：访问资源的令牌，相当于现实中的钥匙。具有时效性。<br>一段时间有效可能过一段时间就无效。<br>③Keystone提供的服务</p>
+<p><strong>二、Keystone-身份服务模块</strong><br>Keystone采用两种授权方式，一种基于用户名/密码，另一种基于令牌（Token）。<br>①几个基本概念：<br>用户：代表可以通过Keystone进行访问的人或程序，用户通过认证信息(如密码、API keys等)进行验证。<br>租户：它是各个服务中的一些可以访问的资源的集合<br>角色：它代表一组用户可以访问的资源的权限<br>②对访问请求的控制<br>访问的对象：<br>1.Service：即服务，如Nova、Glance、Swift。服务在KeyStone进行注册。<br>2.Endpoint：可以理解它是一个服务暴露出来的访问点。如果需要一个访问一个服务则必须知道他的endpoint。<br>3.Token：访问资源的令牌，相当于现实中的钥匙。具有时效性。<br>一段时间有效可能过一段时间就无效。<br>③Keystone提供的服务</p>
 <ol>
 <li>Identity服务验证了身份验证凭证。</li>
 <li>Token服务将会验证并管理用于验证请求身份的令牌</li>
