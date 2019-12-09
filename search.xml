@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>OpenStack</title>
+    <title>OpenStack简介及组件介绍</title>
     <url>/2019/12/09/Keystone/</url>
-    <content><![CDATA[<p><img src="https://img-blog.csdn.net/20171212150356090?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU0xfV29ybGQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+    <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575879941397&di=8561cf8416d07d5af0aa406b95bb6957&imgtype=0&src=http%3A%2F%2Fupload.idcquan.com%2F2016%2F1122%2F1479779990934.jpg" alt=""></p>
 <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>OpenStack是一个开源的云计算管理平台项目。由NASA(美国国家航空航天局)和Rackspace合作研发并发起，这些项目可以独立进行安装、启动和停止。</p>
 <p>优点：扩展性好，安全性高，不会存在单点故障<br>缺点：环境部署复杂</p>
 <p>整个OpenStack是由控制节点、计算节点、网络节点、存储节点四大部分组成。</p>
 <p>含义：<br>控制节点：负责对其他节点的控制，包括虚拟机建立，网络分配，存储分配等;<br>计算节点：负责虚拟机的运行;<br>网络节点：负责对外网络和内网络之间的通信;<br>存储节点：负责对虚拟机的额外存储等;</p>
-<p>控制节点架构<br>1)管理支持服务<br>包含MySQL和RabbitMQ两个服务<br>MySQL:数据库作为基础/扩展服务产生的数据存放的地方<br>RabbitMQ:消息队列中间件作为其他组件提供了通信</p>
+<p><strong>控制节点架构</strong><br>1)管理支持服务<br>包含MySQL和RabbitMQ两个服务<br>MySQL:数据库作为基础/扩展服务产生的数据存放的地方<br>RabbitMQ:消息队列中间件作为其他组件提供了通信</p>
 <p>2)基础管理服务<br>包含Keystone,Glance,Nova,Neutron,DashBoard五个服务<br>Keystone：认证管理服务，提供了其余所有组件的认证信息/令牌的管理，创建，修改等等，使用MySQL作为统一的数据库<br>Glance：镜像管理服务，提供了对虚拟机部署的时候所能提供的镜像的管理，包含镜像的导入，格式，以及制作相应的模板<br>Nova：计算管理服务，提供了对计算节点的Nova的管理，使用Nova-API进行通信<br>Neutron：网络管理服务，提供了对网络节点的网络拓扑管理，同时提供Neutron在Horizon的管理面板<br>Horizon：控制台服务，提供了以Web的形式对所有节点的所有服务的管理，通常把该服务称为DashBoard</p>
 <p>3)扩展管理服务<br>包含Cinder，Swift，Trove，Heat，Centimeter五个服务<br>Cinder：提供管理存储节点的Cinder相关，同时提供Cinder在Horizon中的管理面板<br>Swift：提供管理存储节点的Swift相关，同时提供Swift在Horizon中的管理面板<br>Trove：提供管理数据库节点的Trove相关，同时提供Trove在Horizon中的管理面板<br>Heat：提供了基于模板来实现云环境中资源的初始化，依赖关系处理，部署等基本操作，也可以解决自动收缩,负载均衡等高级特性。<br>Centimeter：提供对物理资源以及虚拟资源的监控，并记录这些数据，对该数据进行分析，在一定条件下触发相应动作<br>控制节点一般来说只需要一个网络端口用于通信/管理各个节点</p>
 <hr>
-<h3 id="安装Keystone组件"><a href="#安装Keystone组件" class="headerlink" title="安装Keystone组件"></a>安装Keystone组件</h3><p>yum -y install openstack-keystone mod_wsgi python-openstackclient</p>
-<h3 id="配置Keystone"><a href="#配置Keystone" class="headerlink" title="配置Keystone"></a>配置Keystone</h3><p>vi /etc/keystone/keystone.conf</p>
 ]]></content>
       <categories>
         <category>OpenStack</category>
