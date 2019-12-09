@@ -4,7 +4,7 @@
     <title>OpenStack简介及组件介绍</title>
     <url>/2019/12/09/OpenStack%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E5%92%8C%E5%90%84%E7%BB%84%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB/</url>
     <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575879941397&di=8561cf8416d07d5af0aa406b95bb6957&imgtype=0&src=http%3A%2F%2Fupload.idcquan.com%2F2016%2F1122%2F1479779990934.jpg" alt=""></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>OpenStack是一个开源的云计算管理平台项目。由NASA(美国国家航空航天局)和Rackspace合作研发并发起，这些项目可以独立进行安装、启动和停止。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>OpenStack是一个开源的云计算管理平台项目。由NASA(美国国家航空航天局)和Rackspace合作研发并发起，这些项目可以独立进行安装、启动和停止。一般使用它当作私有云平台。</p>
 <p>优点：扩展性好，安全性高，不会存在单点故障<br>缺点：环境部署复杂</p>
 <p>整个OpenStack是由控制节点、计算节点、网络节点、存储节点四大部分组成。</p>
 <p>含义：<br>控制节点：负责对其他节点的控制，包括虚拟机建立，网络分配，存储分配等;<br>计算节点：负责虚拟机的运行;<br>网络节点：负责对外网络和内网络之间的通信;<br>存储节点：负责对虚拟机的额外存储等;</p>
