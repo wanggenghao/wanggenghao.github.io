@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Keystone组件</title>
+    <url>/2019/12/09/Keystone/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>OpenStack</category>
+      </categories>
+      <tags>
+        <tag>OpenStack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Centos Bond Network</title>
     <url>/2019/12/07/Centos-Bond-Network/</url>
     <content><![CDATA[<h2 id="Bond简介"><a href="#Bond简介" class="headerlink" title="Bond简介"></a>Bond简介</h2><p>网卡Bond是通过多张网卡绑定为一个逻辑网卡,实现本地网卡的冗余,带宽扩展和负载均衡。</p>
@@ -15,7 +26,6 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
