@@ -88,8 +88,8 @@
 <meta property="og:description" content="简介OpenStack是一个开源的云计算管理平台项目。由NASA(美国国家航空航天局)和Rackspace合作研发并发起，这些项目可以独立进行安装、启动和停止。 优点：扩展性好，安全性高，不会存在单点故障缺点：环境部署复杂 整个OpenStack是由控制节点、计算节点、网络节点、存储节点四大部分组成。 含义：控制节点：负责对其他节点的控制，包括虚拟机建立，网络分配，存储分配等;计算节点：负责虚拟">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https:&#x2F;&#x2F;timgsa.baidu.com&#x2F;timg?image&amp;quality&#x3D;80&amp;size&#x3D;b9999_10000&amp;sec&#x3D;1575879941397&amp;di&#x3D;8561cf8416d07d5af0aa406b95bb6957&amp;imgtype&#x3D;0&amp;src&#x3D;http%3A%2F%2Fupload.idcquan.com%2F2016%2F1122%2F1479779990934.jpg">
-<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdn.net&#x2F;20171212150217921?watermark&#x2F;2&#x2F;text&#x2F;aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU0xfV29ybGQ&#x3D;&#x2F;font&#x2F;5a6L5L2T&#x2F;fontsize&#x2F;400&#x2F;fill&#x2F;I0JBQkFCMA&#x3D;&#x3D;&#x2F;dissolve&#x2F;70&#x2F;gravity&#x2F;Center">
-<meta property="og:updated_time" content="2019-12-09T07:04:44.374Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;img2018.cnblogs.com&#x2F;blog&#x2F;1311506&#x2F;201809&#x2F;1311506-20180928193331112-1621290982.png">
+<meta property="og:updated_time" content="2019-12-09T07:50:59.139Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;timgsa.baidu.com&#x2F;timg?image&amp;quality&#x3D;80&amp;size&#x3D;b9999_10000&amp;sec&#x3D;1575879941397&amp;di&#x3D;8561cf8416d07d5af0aa406b95bb6957&amp;imgtype&#x3D;0&amp;src&#x3D;http%3A%2F%2Fupload.idcquan.com%2F2016%2F1122%2F1479779990934.jpg">
 
@@ -342,7 +342,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.9k
+                  3.5k
                 </span>
               
 
@@ -358,7 +358,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  12
                 </span>
               
             </div>
@@ -415,9 +415,10 @@
 <li>提供云计算环境下的虚拟网络功能。</li>
 <li>给每个租户独立的网络环境。</li>
 </ol>
-<p><strong>八、Openstack各组件之间的关系</strong><br><img src="https://img-blog.csdn.net/20171212150217921?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU0xfV29ybGQ=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p><strong>八、Openstack各组件之间的关系</strong><br><img src="https://img2018.cnblogs.com/blog/1311506/201809/1311506-20180928193331112-1621290982.png" alt=""></p>
 <hr>
-<p>参考：<a href="https://blog.csdn.net/sl_world/article/details/78782019" target="_blank" rel="noopener">https://blog.csdn.net/sl_world/article/details/78782019</a></p>
+<h2 id="虚拟机启动过程"><a href="#虚拟机启动过程" class="headerlink" title="虚拟机启动过程"></a>虚拟机启动过程</h2><p>1)界面或者通过命令行向keystone获取认证信息。<br>2)keystone通过用户请求认证信息，并生成auth-token返回给对应的认证请求。<br>3)界面或命令行通过向nova-api发送一个请求.(携带auth-token)<br>4)nova-api接受请求后向keystone发送认证请求，查看token是否为有效用户和token。<br>5)keystone验证token是否有效，如有效则返回有效的认证和对应的角色.<br>6)通过认证后nova-api和数据库通讯。<br>7)初始化新建虚拟机的数据库记录。<br>8)nova-api通过rpc.call向nova-scheduler请求是否有创建虚拟机的资源(Host ID)。<br>9)nova-scheduler进程侦听消息队列，获取nova-api的请求。<br>10)nova-scheduler通过查询nova数据库中计算资源的情况，并通过调度算法计算符合虚拟机创建需要的主机。<br>11)对于有符合虚拟机创建的主机，nova-scheduler更新数据库中虚拟机对应的物理主机信息。<br>12)nova-scheduler通过rpc.cast向nova-compute发送对应的创建虚拟机请求的消息。<br>13)nova-compute会从对应的消息队列中获取创建虚拟机请求的消息。<br>14)nova-compute通过rpc.call向nova-conductor请求获取虚拟机消息。<br>15)nova-conductor从消息队队列中拿到nova-compute请求消息。<br>16)nova-conductor根据消息查询虚拟机对应的信息。<br>17)nova-conductor从数据库中获得虚拟机对应信息。<br>18)nova-conductor把虚拟机信息通过消息的方式发送到消息队列中。<br>19)nova-compute从对应的消息队列中获取虚拟机信息消息。<br>20)nova-compute通过keystone的RESTfull API拿到认证的token，并通过HTTP请求glance-api获取创建虚拟机所需要镜像。<br>21)glance-api向keystone认证token是否有效，并返回验证结果。<br>22)token验证通过，nova-compute获得虚拟机镜像信息(URL)。<br>23)nova-compute通过keystone的RESTfull API拿到认证k的token，并通过HTTP请求neutron-server获取创建虚拟机所需要的网络信息。<br>24)neutron-server向keystone认证token是否有效，并返回验证结果。<br>25)token验证通过，nova-compute获得虚拟机网络信息。<br>26)nova-compute通过keystone的RESTfull API拿到认证的token，并通过HTTP请求cinder-api获取创建虚拟机所需要的持久化存储信息。<br>27)cinder-api向keystone认证token是否有效，并返回验证结果。<br>28)token验证通过，nova-compute获得虚拟机持久化存储信息。<br>29)nova-compute根据instance的信息调用配置的虚拟化驱动来创建虚拟机。</p>
+<p>参考：<br><a href="https://blog.csdn.net/sl_world/article/details/78782019" target="_blank" rel="noopener">https://blog.csdn.net/sl_world/article/details/78782019</a><br><a href="https://www.cnblogs.com/xiugeng/p/9668102.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiugeng/p/9668102.html</a></p>
 
       
     </div>
@@ -626,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenStack各组件作用"><span class="nav-number">2.</span> <span class="nav-text">OpenStack各组件作用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenStack各组件作用"><span class="nav-number">2.</span> <span class="nav-text">OpenStack各组件作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟机启动过程"><span class="nav-number">3.</span> <span class="nav-text">虚拟机启动过程</span></a></li></ol></div>
             
 
           </div>
