@@ -58,11 +58,15 @@
 <h2 id="Bond模式（常用的三种模式）"><a href="#Bond模式（常用的三种模式）" class="headerlink" title="Bond模式（常用的三种模式）"></a>Bond模式（常用的三种模式）</h2><p>1）mode=0(balance-rr):平衡负载模式，有自动备援，但需要”Switch”支援及设定。 </p>
 <p>2）mode=1(active-backup):自动备援模式，其中一条线若断线，其他线路将会自动备援。</p>
 <p>3) mode=6(balance-alb):平衡负载模式，有自动备援，不必”Switch”支援及设定。</p>
-<h2 id="配置Bond网卡"><a href="#配置Bond网卡" class="headerlink" title="配置Bond网卡"></a>配置Bond网卡</h2><p><strong>1)配置逻辑网卡</strong><br>vim ifcf-bond-bond0<br>DEVICE=bond0<br>BONDING_OPTS=mode=balance-rr<br>TYPE=Bond<br>BONDING_MASTER=yes<br>BOOTPROTO=none<br>DEFROUTE=yes<br>IPV4_FAILURE_FATAL=no<br>IPV6INIT=no<br>NAME=bond-bond0<br>IPADDR=192.168.10.1<br>ONBOOT=yes<br>PREFIX=24<br>GATEWAY=192.168.10.254</p>
+<h2 id="配置Bond网卡"><a href="#配置Bond网卡" class="headerlink" title="配置Bond网卡"></a>配置Bond网卡</h2><h3 id="计算节点和存储节点间通信网"><a href="#计算节点和存储节点间通信网" class="headerlink" title="计算节点和存储节点间通信网"></a>计算节点和存储节点间通信网</h3><p><strong>1)配置逻辑网卡</strong><br>vim ifcf-bond-bond0<br>DEVICE=bond0<br>BONDING_OPTS=mode=balance-rr<br>TYPE=Bond<br>BONDING_MASTER=yes<br>BOOTPROTO=none<br>DEFROUTE=yes<br>IPV4_FAILURE_FATAL=no<br>IPV6INIT=no<br>NAME=bond-bond0<br>IPADDR=192.168.10.1<br>ONBOOT=yes<br>PREFIX=24<br>GATEWAY=192.168.10.254</p>
 <p><strong>2)配置物理网卡</strong><br>vim ifcfg-bond-slave-ens37<br>TYPE=Ethernet<br>NAME=bond-slave-ens37<br>DEVICE=ens37<br>NOBOOT=yes<br>MASTER=bond0<br>SLAVE=yes</p>
 <p><strong>3)配置物理网卡</strong><br>vim ifcfg-bond-slave-ens38<br>TYPE=Ethernet<br>NAME=bond-slave-ens38<br>DEVICE=ens38<br>NOBOOT=yes<br>MASTER=bond0<br>SLAVE=yes</p>
-<p><strong>4)移除NetworkManager</strong><br>yum remove NetworkManager</p>
-<p><strong>5)重启网络</strong><br>/etc/init.d/network restart</p>
+<h3 id="与控制节点通信网"><a href="#与控制节点通信网" class="headerlink" title="与控制节点通信网"></a>与控制节点通信网</h3><p><strong>1)配置逻辑网卡</strong><br>vim ifcfg-bond-bondmt0<br>DEVICE=bondmt0<br>BONDING_OPTS=mode=balance-rr<br>TYPE=Bond<br>BONDING_MASTER=yes<br>BOOTPROTO=none<br>DEFROUTE=no<br>IPV4_FAILURE_FATAL=no<br>NAME=bond-bondmt0<br>ONBOOT=yes<br>IPADDR=192.168.1.1<br>PREFIX=24<br>NM_CONTROLLED=no</p>
+<p><strong>2)配置物理网卡</strong><br>vim ifcfg-bond-slave-ens38<br>TYPE=Ethernet<br>NAME=bond-slave-ens38<br>DEVICE=ens38<br>NOBOOT=yes<br>MASTER=bondmt0<br>SLAVE=yes</p>
+<h3 id="虚拟机IP分配网卡"><a href="#虚拟机IP分配网卡" class="headerlink" title="虚拟机IP分配网卡"></a>虚拟机IP分配网卡</h3><p><strong>1)配置逻辑网卡</strong><br>vim ifcfg-bond-bond1<br>DEVICE=bond1<br>BONDING_OPTS=mode=balance-rr<br>TYPE=Bond<br>BONDING_MASTER=yes<br>BOOTPROTO=none<br>DEFROUTE=no<br>NAME=bond-bond1<br>ONBOOT=yes<br>NM_CONTROLLED=no</p>
+<p><strong>2)配置物理网卡</strong><br>vim ifcfg-bond-slave-ens39<br>TYPE=Ethernet<br>NAME=bond-slave-ens39<br>DEVICE=ens39<br>NOBOOT=yes<br>MASTER=bond1<br>SLAVE=yes</p>
+<h2 id="移除NetworkManager"><a href="#移除NetworkManager" class="headerlink" title="移除NetworkManager"></a>移除NetworkManager</h2><p>yum remove NetworkManager</p>
+<h2 id="重启网络"><a href="#重启网络" class="headerlink" title="重启网络"></a>重启网络</h2><p>/etc/init.d/network restart</p>
 <hr>
 <p><a href="http://www.deephug.wang">跳转首页</a></p>
 ]]></content>
