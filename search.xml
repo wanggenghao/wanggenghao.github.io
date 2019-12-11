@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>OpenStack Command</title>
+    <url>/2019/12/11/OpenStack-Command/</url>
+    <content><![CDATA[<p><strong>创建一个demo项目</strong><br>openstack project create –domain defult –description “Service” demo</p>
+<p><strong>创建一个demon用户</strong><br>openstack user create –domain default –password=demo demo</p>
+<p><strong>查看用户</strong><br>openstack user list</p>
+<p><strong>把用户加入到admin角色中</strong><br>openstack role add –project serive –user wang admin</p>
+]]></content>
+      <categories>
+        <category>OpenStack</category>
+      </categories>
+      <tags>
+        <tag>OpenStack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Galera Cluster</title>
     <url>/2019/12/10/Galera-Cluster/</url>
     <content><![CDATA[<h2 id="Galera-Cluster简介"><a href="#Galera-Cluster简介" class="headerlink" title="Galera Cluster简介"></a>Galera Cluster简介</h2><p>简单说就是集成了Galera插件的MySQL集群，是一种新型的高可用方案，分别是Percona Xtradb Cluster及MariaDB Cluster，都是基于Galera的，所以这里都统称为Galera Cluster。<br><img src="http://img.mp.itc.cn/upload/20170608/5f4f462be545425ca2ac0be94c3535ba.jpg" alt></p>
