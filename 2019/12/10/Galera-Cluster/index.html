@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Linux," />
+  <meta name="keywords" content="Databases," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="Bond简介网卡Bond是通过多张网卡绑定为一个逻辑网卡,实现本地网卡的冗余,带宽扩展和负载均衡。 Bond模式（常用的三种模式）1）mode&#x3D;0(balance-rr):平衡负载模式，有自动备援，但需要”Switch”支援及设定。  2）mode&#x3D;1(active-backup):自动备援模式，其中一条线若断线，其他线路将会自动备援。 3) mode&#x3D;6(balance-alb):平衡负载模式，">
-<meta name="keywords" content="Linux">
+<meta name="description" content="Galera Cluster简介简单说就是集成了Galera插件的MySQL集群，是一种新型的高可用方案，分别是Percona Xtradb Cluster及MariaDB Cluster，都是基于Galera的，所以这里都统称为Galera Cluster。  Galera Cluster架构特性同步复制，没有复制延迟；多线程复制；没有主从切换操作，无需使用虚IP；热备份，单个节点故障期间不会影">
+<meta name="keywords" content="Databases">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos Bond Network">
-<meta property="og:url" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;07&#x2F;Centos-Bond-Network&#x2F;index.html">
+<meta property="og:title" content="Galera Cluster">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;10&#x2F;Galera-Cluster&#x2F;index.html">
 <meta property="og:site_name" content="Do what you want!">
-<meta property="og:description" content="Bond简介网卡Bond是通过多张网卡绑定为一个逻辑网卡,实现本地网卡的冗余,带宽扩展和负载均衡。 Bond模式（常用的三种模式）1）mode&#x3D;0(balance-rr):平衡负载模式，有自动备援，但需要”Switch”支援及设定。  2）mode&#x3D;1(active-backup):自动备援模式，其中一条线若断线，其他线路将会自动备援。 3) mode&#x3D;6(balance-alb):平衡负载模式，">
+<meta property="og:description" content="Galera Cluster简介简单说就是集成了Galera插件的MySQL集群，是一种新型的高可用方案，分别是Percona Xtradb Cluster及MariaDB Cluster，都是基于Galera的，所以这里都统称为Galera Cluster。  Galera Cluster架构特性同步复制，没有复制延迟；多线程复制；没有主从切换操作，无需使用虚IP；热备份，单个节点故障期间不会影">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-10T10:16:56.469Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;img.mp.itc.cn&#x2F;upload&#x2F;20170608&#x2F;5f4f462be545425ca2ac0be94c3535ba.jpg">
+<meta property="og:updated_time" content="2019-12-11T01:42:46.289Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;img.mp.itc.cn&#x2F;upload&#x2F;20170608&#x2F;5f4f462be545425ca2ac0be94c3535ba.jpg">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.deephug.wang/2019/12/07/Centos-Bond-Network/"/>
+  <link rel="canonical" href="http://www.deephug.wang/2019/12/10/Galera-Cluster/"/>
 
 
 
 
 
-  <title>Centos Bond Network | Do what you want!</title>
+  <title>Galera Cluster | Do what you want!</title>
   
 
 
@@ -251,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.deephug.wang/2019/12/07/Centos-Bond-Network/">
+    <link itemprop="mainEntityOfPage" href="http://www.deephug.wang/2019/12/10/Galera-Cluster/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Genghao">
@@ -268,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Centos Bond Network</h1>
+          <h1 class="post-title" itemprop="name headline">Galera Cluster</h1>
         
 
         <div class="post-meta">
@@ -280,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-07T22:23:23+08:00">
-                2019-12-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-10T18:06:59+08:00">
+                2019-12-10
               </time>
             
 
@@ -303,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/Databases/" itemprop="url" rel="index">
+                    <span itemprop="name">Databases</span>
                   </a>
                 </span>
 
@@ -339,7 +341,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  342
+                  1.2k
                 </span>
               
 
@@ -355,7 +357,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -376,21 +378,20 @@
       
 
       
-        <h2 id="Bond简介"><a href="#Bond简介" class="headerlink" title="Bond简介"></a>Bond简介</h2><p>网卡Bond是通过多张网卡绑定为一个逻辑网卡,实现本地网卡的冗余,带宽扩展和负载均衡。</p>
-<h2 id="Bond模式（常用的三种模式）"><a href="#Bond模式（常用的三种模式）" class="headerlink" title="Bond模式（常用的三种模式）"></a>Bond模式（常用的三种模式）</h2><p>1）mode=0(balance-rr):平衡负载模式，有自动备援，但需要”Switch”支援及设定。 </p>
-<p>2）mode=1(active-backup):自动备援模式，其中一条线若断线，其他线路将会自动备援。</p>
-<p>3) mode=6(balance-alb):平衡负载模式，有自动备援，不必”Switch”支援及设定。</p>
-<h2 id="配置Bond网卡"><a href="#配置Bond网卡" class="headerlink" title="配置Bond网卡"></a>配置Bond网卡</h2><h3 id="计算节点和存储节点间通信网"><a href="#计算节点和存储节点间通信网" class="headerlink" title="计算节点和存储节点间通信网"></a>计算节点和存储节点间通信网</h3><p><strong>1)配置逻辑网卡</strong><br>vim ifcf-bond-bond0<br>DEVICE=bond0<br>BONDING_OPTS=mode=balance-rr<br>TYPE=Bond<br>BONDING_MASTER=yes<br>BOOTPROTO=none<br>DEFROUTE=yes<br>IPV4_FAILURE_FATAL=no<br>IPV6INIT=no<br>NAME=bond-bond0<br>IPADDR=192.168.10.1<br>ONBOOT=yes<br>PREFIX=24<br>GATEWAY=192.168.10.254</p>
-<p><strong>2)配置物理网卡</strong><br>vim ifcfg-bond-slave-ens37<br>TYPE=Ethernet<br>NAME=bond-slave-ens37<br>DEVICE=ens37<br>NOBOOT=yes<br>MASTER=bond0<br>SLAVE=yes</p>
-<p><strong>3)配置物理网卡</strong><br>vim ifcfg-bond-slave-ens38<br>TYPE=Ethernet<br>NAME=bond-slave-ens38<br>DEVICE=ens38<br>NOBOOT=yes<br>MASTER=bond0<br>SLAVE=yes</p>
-<h3 id="与控制节点通信网"><a href="#与控制节点通信网" class="headerlink" title="与控制节点通信网"></a>与控制节点通信网</h3><p><strong>1)配置逻辑网卡</strong><br>vim ifcfg-bond-bondmt0<br>DEVICE=bondmt0<br>BONDING_OPTS=mode=balance-rr<br>TYPE=Bond<br>BONDING_MASTER=yes<br>BOOTPROTO=none<br>DEFROUTE=no<br>IPV4_FAILURE_FATAL=no<br>NAME=bond-bondmt0<br>ONBOOT=yes<br>IPADDR=192.168.1.1<br>PREFIX=24<br>NM_CONTROLLED=no</p>
-<p><strong>2)配置物理网卡</strong><br>vim ifcfg-bond-slave-ens38<br>TYPE=Ethernet<br>NAME=bond-slave-ens38<br>DEVICE=ens38<br>NOBOOT=yes<br>MASTER=bondmt0<br>SLAVE=yes</p>
-<h3 id="虚拟机IP分配网卡"><a href="#虚拟机IP分配网卡" class="headerlink" title="虚拟机IP分配网卡"></a>虚拟机IP分配网卡</h3><p><strong>1)配置逻辑网卡</strong><br>vim ifcfg-bond-bond1<br>DEVICE=bond1<br>BONDING_OPTS=mode=balance-rr<br>TYPE=Bond<br>BONDING_MASTER=yes<br>BOOTPROTO=none<br>DEFROUTE=no<br>NAME=bond-bond1<br>ONBOOT=yes<br>NM_CONTROLLED=no</p>
-<p><strong>2)配置物理网卡</strong><br>vim ifcfg-bond-slave-ens39<br>TYPE=Ethernet<br>NAME=bond-slave-ens39<br>DEVICE=ens39<br>NOBOOT=yes<br>MASTER=bond1<br>SLAVE=yes</p>
-<h2 id="移除NetworkManager"><a href="#移除NetworkManager" class="headerlink" title="移除NetworkManager"></a>移除NetworkManager</h2><p>yum remove NetworkManager</p>
-<h2 id="重启网络"><a href="#重启网络" class="headerlink" title="重启网络"></a>重启网络</h2><p>/etc/init.d/network restart</p>
+        <h2 id="Galera-Cluster简介"><a href="#Galera-Cluster简介" class="headerlink" title="Galera Cluster简介"></a>Galera Cluster简介</h2><p>简单说就是集成了Galera插件的MySQL集群，是一种新型的高可用方案，分别是Percona Xtradb Cluster及MariaDB Cluster，都是基于Galera的，所以这里都统称为Galera Cluster。<br><img src="http://img.mp.itc.cn/upload/20170608/5f4f462be545425ca2ac0be94c3535ba.jpg" alt></p>
 <hr>
-<p><a href="http://www.deephug.wang">跳转首页</a></p>
+<h2 id="Galera-Cluster架构特性"><a href="#Galera-Cluster架构特性" class="headerlink" title="Galera Cluster架构特性"></a>Galera Cluster架构特性</h2><p>同步复制，没有复制延迟；<br>多线程复制；<br>没有主从切换操作，无需使用虚IP；<br>热备份，单个节点故障期间不会影响数据库业务；<br>支持节点自动加入，无需手动拷贝数据；<br>支持InnoDB存储引擎；</p>
+<hr>
+<h2 id="基于认证的复制"><a href="#基于认证的复制" class="headerlink" title="基于认证的复制"></a>基于认证的复制</h2><p>1、当客户端提交了一个commit命令，事务提交之前进行，所有对数据库的操作都会被写入write-set（写集合）中，包括主键，然后数据库会将这个write-set发给所有其他节点。<br>2、write-set将在每个节点上使用主键进行认证尝试。<br>3、如果认证失败，节点会丢弃这个write-set，同时集群会回滚到之前的事务点；如果认证成功，commit正常提交，事务会应用到其他节点上。<br>4、Galera Cluster基于认证的复制主要依赖于全局序列号，复制期间，Galera Cluster会为每一个事务分配一个全局事务序号，类似序列号。<br>5、当某个事务到达commit阶段时，节点会检查待提交事务的序号与上一次成功提交事务的序号，检查区间所有事务是否与新事务存在主键冲突，如果检查到冲突，认证就会失败。<br>6、所有节点以相同的顺序接受事务，所有节点对事务是否提交做一致性决定。事务提交成功之后，首先生成此事务的节点会通知应用程序事务已正确提交。</p>
+<hr>
+<h2 id="数据复制方式"><a href="#数据复制方式" class="headerlink" title="数据复制方式"></a>数据复制方式</h2><p>将集群中的数据复制到某个节点上实现备份，或者节点新加入集群需要同步数据。<br>Galera Cluster有两种数据复制方式：</p>
+<p>State Snapshot Transfers (SST)：全量同步<br>Incremental State Transfers (IST)：增量同步<br>简单来讲。SST就是同步整个数据库，IST是同步一个库与另一个库相差的部分事务。<br><strong>State Snapshot Transfers (SST)</strong><br>当一个节点新加入集群时，新加入的节点会向集群中已存在的某个节点开始进行全量同步，全量同步中有两种不同的方式：<br>Logical：这种方法其实就是常用的mysqldump。在同步之前需要同步的数据库需要初始化，即没有任何多余的数据。这是一种加锁的方式，传输期间，数据库会变成read-only，同时，同步的主库上会运行一个杀伤性比较大的FLUSH TABLES WITH READ LOCK命令。下面简单介绍一下这个命令，来看看为什么要说它杀伤力比较大。<br>FLUSH TABLES WITH READ LOCK命令简称FTWRL，该命令主要用于备份工具获取一致性备份，由于FTWRL命令总共需要持有两把全局MDL锁，并且还需要关闭所有表对象，所以会说它杀伤性比较大。执行此命令容易造成库hang住，如果在主库上执行此命令，容易造成业务异常，如果在备库上执行，容易造成SQL线程卡住，造成主备复制延迟。<br>Physical：这种方式使用rsync, rsync_wan, xtrabackup和其他一些方式直接将数据文件从一个节点复制到另一个节点上，简单粗暴！这种方式比mysqldump要快，但限制也挺多的。</p>
+<p><strong>Incremental State Transfers (IST)</strong><br>这种复制方式会验证从库落后的事务，然后将这部分发送过去，而不是将整个数据库进行同步。<br>这种方式有两个限制：</p>
+<p>1、新加入节点的state UUID需要与集群的一致（可以用show status like ‘%wsrep%’命令进行确认）；<br>2、所有落后的write-sets需要在主库的write-set cache中存在。<br>下面用个例子来简单介绍一下：<br>假设现在有一个节点赶不上集群的进度了，它的node state为</p>
+<p>a76ef62-30ec-11e1-0800-dba504cf2aab:197222<br>同时，集群中的一个节点的note state为</p>
+<p>5a76ef62-30ec-11e1-0800-dba504cf2aab:201913</p>
+<p>主库（我们姑且这样称呼，比较好辨认）收到从库的同步请求之后，他会在自己的write-set cache查找sequence number 197223，如果没有找着，就开始进行SST，如果能找着，主库就将197223到201913的commit同步给从库。<br><strong>注意：从实现原理上，我们就能发现，write-set cache的大小将直接决定能进行多少增量复制，在主库上由gcache.size来决定使用多大的内存来存储write-sets。此值设置过大过小都不好，需要根据自己环境来合理设置。</strong></p>
+<p>参考<br><a href="https://segmentfault.com/a/1190000013652043?utm_medium=referral&amp;utm_source=tuicool" target="_blank" rel="noopener">https://segmentfault.com/a/1190000013652043?utm_medium=referral&amp;utm_source=tuicool</a></p>
 
       
     </div>
@@ -432,7 +433,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/Databases/" rel="tag"># Databases</a>
           
         </div>
       
@@ -445,15 +446,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/12/09/OpenStack%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E5%92%8C%E5%90%84%E7%BB%84%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB/" rel="next" title="OpenStack简介及组件介绍">
+                <i class="fa fa-chevron-left"></i> OpenStack简介及组件介绍
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/09/OpenStack%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E5%92%8C%E5%90%84%E7%BB%84%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB/" rel="prev" title="OpenStack简介及组件介绍">
-                OpenStack简介及组件介绍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -599,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bond简介"><span class="nav-number">1.</span> <span class="nav-text">Bond简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bond模式（常用的三种模式）"><span class="nav-number">2.</span> <span class="nav-text">Bond模式（常用的三种模式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Bond网卡"><span class="nav-number">3.</span> <span class="nav-text">配置Bond网卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算节点和存储节点间通信网"><span class="nav-number">3.1.</span> <span class="nav-text">计算节点和存储节点间通信网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与控制节点通信网"><span class="nav-number">3.2.</span> <span class="nav-text">与控制节点通信网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟机IP分配网卡"><span class="nav-number">3.3.</span> <span class="nav-text">虚拟机IP分配网卡</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除NetworkManager"><span class="nav-number">4.</span> <span class="nav-text">移除NetworkManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启网络"><span class="nav-number">5.</span> <span class="nav-text">重启网络</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Galera-Cluster简介"><span class="nav-number">1.</span> <span class="nav-text">Galera Cluster简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Galera-Cluster架构特性"><span class="nav-number">2.</span> <span class="nav-text">Galera Cluster架构特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于认证的复制"><span class="nav-number">3.</span> <span class="nav-text">基于认证的复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据复制方式"><span class="nav-number">4.</span> <span class="nav-text">数据复制方式</span></a></li></ol></div>
             
 
           </div>
