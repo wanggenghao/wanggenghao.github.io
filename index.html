@@ -374,7 +374,7 @@
       
         
           
-            <h2 id="Galera-Cluster简介"><a href="#Galera-Cluster简介" class="headerlink" title="Galera Cluster简介**"></a>Galera Cluster简介**</h2><p>简单说就是集成了Galera插件的MySQL集群，是一种新型的高可用方案，分别是Percona Xtradb Cluster及MariaDB Cluster，都是基于Galera的，所以这里都统称为Galera Cluster。<br><img src="http://img.mp.itc.cn/upload/20170608/5f4f462be545425ca2ac0be94c3535ba.jpg" alt><br>+++</p>
+            <h2 id="Galera-Cluster简介"><a href="#Galera-Cluster简介" class="headerlink" title="Galera Cluster简介"></a>Galera Cluster简介</h2><p>简单说就是集成了Galera插件的MySQL集群，是一种新型的高可用方案，分别是Percona Xtradb Cluster及MariaDB Cluster，都是基于Galera的，所以这里都统称为Galera Cluster。<br><img src="http://img.mp.itc.cn/upload/20170608/5f4f462be545425ca2ac0be94c3535ba.jpg" alt><br>+++</p>
 <h2 id="Galera-Cluster架构特性"><a href="#Galera-Cluster架构特性" class="headerlink" title="Galera Cluster架构特性"></a>Galera Cluster架构特性</h2><p>同步复制，没有复制延迟；<br>多线程复制；<br>没有主从切换操作，无需使用虚IP；<br>热备份，单个节点故障期间不会影响数据库业务；<br>支持节点自动加入，无需手动拷贝数据；<br>支持InnoDB存储引擎；<br>+++</p>
 <h2 id="基于认证的复制"><a href="#基于认证的复制" class="headerlink" title="基于认证的复制"></a>基于认证的复制</h2><p>1、当客户端提交了一个commit命令，事务提交之前进行，所有对数据库的操作都会被写入write-set（写集合）中，包括主键，然后数据库会将这个write-set发给所有其他节点。<br>2、write-set将在每个节点上使用主键进行认证尝试。<br>3、如果认证失败，节点会丢弃这个write-set，同时集群会回滚到之前的事务点；如果认证成功，commit正常提交，事务会应用到其他节点上。<br>4、Galera Cluster基于认证的复制主要依赖于全局序列号，复制期间，Galera Cluster会为每一个事务分配一个全局事务序号，类似序列号。<br>5、当某个事务到达commit阶段时，节点会检查待提交事务的序号与上一次成功提交事务的序号，检查区间所有事务是否与新事务存在主键冲突，如果检查到冲突，认证就会失败。<br>6、所有节点以相同的顺序接受事务，所有节点对事务是否提交做一致性决定。事务提交成功之后，首先生成此事务的节点会通知应用程序事务已正确提交。<br>+++</p>
 <h2 id="数据复制方式"><a href="#数据复制方式" class="headerlink" title="数据复制方式"></a>数据复制方式</h2><p>将集群中的数据复制到某个节点上实现备份，或者节点新加入集群需要同步数据。<br>Galera Cluster有两种数据复制方式：</p>
