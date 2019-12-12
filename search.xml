@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>OpenStack Command</title>
+    <title>OpenStack常用命令</title>
     <url>/2019/12/11/OpenStack-Command/</url>
     <content><![CDATA[<p><strong>创建一个demo项目</strong><br>openstack project create –domain defult –description “Service” demo</p>
 <p><strong>创建一个demon用户</strong><br>openstack user create –domain default –password=demo demo</p>
