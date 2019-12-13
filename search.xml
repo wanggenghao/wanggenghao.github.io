@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>RabbitMQ镜像集群</title>
+    <url>/2019/12/13/RabbitMQ%E9%95%9C%E5%83%8F%E9%9B%86%E7%BE%A4/</url>
+    <content><![CDATA[<h2 id="Rabbitmq简介"><a href="#Rabbitmq简介" class="headerlink" title="Rabbitmq简介"></a>Rabbitmq简介</h2><p>消息队列（Message Queue，简称MQ）。<br>不同进程（process）之间传递消息时，一个进程改动会引发另外一个进程改动，为了隔离这两个进程，<br>就要使用消息队列来进行隔离。还有就是实现消息格式规范，需要对收到消息进行排队。</p>
+<p>RabbitMQ使用Erlang语言编写，在AMQP消息队列协议的基础上完成。</p>
+<p>*<em>这是　RabbitMQ的官网是    <a href="http://www.rabbitmq.com" target="_blank" rel="noopener">http://www.rabbitmq.com</a> *</em></p>
+<p><img src="https://img-blog.csdnimg.cn/2019052815321142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4NTEzODAx,size_16,color_FFFFFF,t_70" alt></p>
+<p>##Queue（队列）</p>
+<p><strong>Queue</strong><br>Queue（队列）RabbitMQ的作用是存储消息，队列的特性是先进先出。生产者的消息会被送到Queue中，接收者从Queue中取出数据。<br>Queue会平均分配给消费者，可以使用perfetchCount来限制每次发送给消费者的次数。</p>
+<h2 id="Exchange"><a href="#Exchange" class="headerlink" title="Exchange"></a>Exchange</h2><p><strong>Exchange</strong><br>生产者的消息会先推送给Exchange，RabbitMQ是通过Binding将Exchange和Queue连接在一起，这样<br>Exchange就知道如何将消息准确的推送到Queue中去。</p>
+<p><strong>Exchange Type</strong><br>Exchange类型决定是怎样去发送到Queue中去<br>fanout：类型的Exchange路由规则非常简单，它会把所有发送到该Exchange的消息路由到所有与它绑定的Queue中。<br>direct：类型的Exchange路由规则也很简单，它会把消息路由到那些binding key与routing key完全匹配的Queue中<br>topic： 这个规则就是模糊匹配，可以通过通配符满足一部分规则就可以传送。<br>headers：Exchange不依赖于routing key与binding key的匹配规则来路由消息，而是根据发送的消息内容中的headers属性进行匹配。</p>
+<h2 id="RabbitMQ常用集群模式"><a href="#RabbitMQ常用集群模式" class="headerlink" title="RabbitMQ常用集群模式"></a>RabbitMQ常用集群模式</h2><p><strong>1）主备模式：</strong><br>这种模式两台服务器即可，出现故障会切换到备用服务器，缺点就是不会实现负载均衡，会造成资源浪费。</p>
+<p><strong>2）镜像模式：</strong><br>这种模式生产环境使用最多，集群中所有节点每一台MQ的服务器数据都是同步的，可以通过Nginx或者Haproxy实现负载均衡，</p>
+<h2 id="RabbitMQ镜像集群部署"><a href="#RabbitMQ镜像集群部署" class="headerlink" title="RabbitMQ镜像集群部署"></a>RabbitMQ镜像集群部署</h2><p>1）配置域名解析并安装服务<br>192.168.5.129 master<br>192.168.5.132 slave1<br>192.168.5.133 slave2</p>
+<p>2)安装rabbitmq服务<br>yum -y install rabbitmq-server</p>
+<p>3)设置变量文件<br>RABBITMQ_NODE_IP_ADDRESS=192.168.5.134<br>NODENAME=rabbit@master<br>RABBITMQ_MNESIA_BASE=/var/lib/rabbitmq/mnesia</p>
+<p>4)启动rabbitmq<br>systemctl start rabbitmq-server</p>
+<p>4)重置rabbitmq<br>rabbitmqctl stop_app<br>rabbitmqctl reset<br>rabbitmqctl start_app</p>
+<p>5）所有节点设置rabbitmq的打开文件数并刷新系统配置<br>crudini –set /usr/lib/systemd/system/rabbitmq-server.service Service LimitNOFILE 65536<br>systemctl daemon-reload</p>
+<p>4）所有节点重启rabbitmq<br>systemctl restart rabbitmq-server</p>
+<p>5）复制erlang.cookie（这个文件是rabbitmq服务的分布式token文件，所有节点必须保持相同的token才能通信）<br>scp /var/lib/rabbitmq/.erlang.cookie slave1:/var/lib/rabbitmq/<br>scp /var/lib/rabbitmq/.erlang.cookie slave2:/var/lib/rabbitmq/</p>
+<p>6)配置Rabbitmq镜像策略<br>rabbitmqctl set_policy ha-all ‘^(?!amq.).*’ ‘{“ha-mode”: “all”}’<br>解释：镜像队列在所有节点上面，如果有新节点加入。队列也会镜像到新加入的节点上面去。</p>
+<p>7）启动管理插件<br>rabbitmq-plugins enable rabbitmq_management</p>
+<p>8）将集群名字设置为rabbitmq_cluster<br>rabbitmqctl set_cluster_name rabbitmq_cluster</p>
+<h2 id="Rabbitmq-Slave"><a href="#Rabbitmq-Slave" class="headerlink" title="Rabbitmq-Slave"></a>Rabbitmq-Slave</h2><p>1)配置变量文件<br>cat /etc/rabbitmq/rabbitmq-env.conf<br>RABBITMQ_NODE_IP_ADDRESS=192.168.5.133<br>NODENAME=rabbit@slave2<br>RABBITMQ_MNESIA_BASE=/var/lib/rabbitmq/mnesia</p>
+<p>2)启动Rabbtimq<br>systemctl start rabbitmq-server</p>
+<p>3）加入Rabbitmq集群<br>rabbitmqctl stop_app<br>rabbitmqctl join_cluster rabbit@master<br>rabbitmqctl start_app</p>
+<p>4)启动管理插件<br>rabbitmq-plugins enable rabbitmq_management</p>
+<h2 id="Rabbitmq端口"><a href="#Rabbitmq端口" class="headerlink" title="Rabbitmq端口"></a>Rabbitmq端口</h2><p>4369 – erlang发现口</p>
+<p>5672 –client端通信口</p>
+<p>15672 – 管理界面ui端口</p>
+<p>25672 – server间内部通信口</p>
+<p>直接访问浏览器：<a href="http://xxxxxx:15672" target="_blank" rel="noopener">http://xxxxxx:15672</a></p>
+<p>一般使用Playbooks来实现服务的安装，这样太繁琐了。</p>
+]]></content>
+      <categories>
+        <category>RabbitMQ</category>
+      </categories>
+      <tags>
+        <tag>RabbitMQ</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenStack常用命令</title>
     <url>/2019/12/11/OpenStack-Command/</url>
     <content><![CDATA[<p><strong>创建一个demo项目</strong><br>openstack project create –domain defult –description “Service” demo</p>
