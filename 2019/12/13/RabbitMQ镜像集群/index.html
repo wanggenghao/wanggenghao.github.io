@@ -79,16 +79,16 @@
 
 
 
-<meta name="description" content="Rabbitmq简介消息队列（Message Queue，简称MQ）。不同进程（process）之间传递消息时，一个进程改动会引发另外一个进程改动，为了隔离这两个进程，就要使用消息队列来进行隔离。还有就是实现消息格式规范，需要对收到消息进行排队。 RabbitMQ使用Erlang语言编写，在AMQP消息队列协议的基础上完成。 这是　RabbitMQ的官网是    http:&#x2F;&#x2F;www.rabbit">
+<meta name="description" content="RabbitMQ简介消息队列（Message Queue，简称MQ）。不同进程（process）之间传递消息时，一个进程改动会引发另外一个进程改动，为了隔离这两个进程，就要使用消息队列来进行隔离。还有就是实现消息格式规范，需要对收到消息进行排队。 RabbitMQ使用Erlang语言编写，在AMQP消息队列协议的基础上完成。 这是　RabbitMQ的官网是    http:&#x2F;&#x2F;www.rabbit">
 <meta name="keywords" content="RabbitMQ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RabbitMQ镜像集群">
 <meta property="og:url" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;13&#x2F;RabbitMQ%E9%95%9C%E5%83%8F%E9%9B%86%E7%BE%A4&#x2F;index.html">
 <meta property="og:site_name" content="Do what you want!">
-<meta property="og:description" content="Rabbitmq简介消息队列（Message Queue，简称MQ）。不同进程（process）之间传递消息时，一个进程改动会引发另外一个进程改动，为了隔离这两个进程，就要使用消息队列来进行隔离。还有就是实现消息格式规范，需要对收到消息进行排队。 RabbitMQ使用Erlang语言编写，在AMQP消息队列协议的基础上完成。 这是　RabbitMQ的官网是    http:&#x2F;&#x2F;www.rabbit">
+<meta property="og:description" content="RabbitMQ简介消息队列（Message Queue，简称MQ）。不同进程（process）之间传递消息时，一个进程改动会引发另外一个进程改动，为了隔离这两个进程，就要使用消息队列来进行隔离。还有就是实现消息格式规范，需要对收到消息进行排队。 RabbitMQ使用Erlang语言编写，在AMQP消息队列协议的基础上完成。 这是　RabbitMQ的官网是    http:&#x2F;&#x2F;www.rabbit">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;2019052815321142.png?x-oss-process&#x3D;image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4NTEzODAx,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-12-13T03:37:11.893Z">
+<meta property="og:updated_time" content="2019-12-13T03:47:00.363Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;2019052815321142.png?x-oss-process&#x3D;image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4NTEzODAx,size_16,color_FFFFFF,t_70">
 
@@ -368,7 +368,7 @@
       
 
       
-        <h2 id="Rabbitmq简介"><a href="#Rabbitmq简介" class="headerlink" title="Rabbitmq简介"></a>Rabbitmq简介</h2><p>消息队列（Message Queue，简称MQ）。<br>不同进程（process）之间传递消息时，一个进程改动会引发另外一个进程改动，为了隔离这两个进程，<br>就要使用消息队列来进行隔离。还有就是实现消息格式规范，需要对收到消息进行排队。</p>
+        <h2 id="RabbitMQ简介"><a href="#RabbitMQ简介" class="headerlink" title="RabbitMQ简介"></a>RabbitMQ简介</h2><p>消息队列（Message Queue，简称MQ）。<br>不同进程（process）之间传递消息时，一个进程改动会引发另外一个进程改动，为了隔离这两个进程，<br>就要使用消息队列来进行隔离。还有就是实现消息格式规范，需要对收到消息进行排队。</p>
 <p>RabbitMQ使用Erlang语言编写，在AMQP消息队列协议的基础上完成。</p>
 <p><strong>这是　RabbitMQ的官网是    <a href="http://www.rabbitmq.com" target="_blank" rel="noopener">http://www.rabbitmq.com</a></strong></p>
 <p><img src="https://img-blog.csdnimg.cn/2019052815321142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4NTEzODAx,size_16,color_FFFFFF,t_70" alt></p>
@@ -606,7 +606,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Rabbitmq简介"><span class="nav-number">1.</span> <span class="nav-text">Rabbitmq简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue（队列）"><span class="nav-number">2.</span> <span class="nav-text">Queue（队列）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exchange"><span class="nav-number">3.</span> <span class="nav-text">Exchange</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RabbitMQ常用集群模式"><span class="nav-number">4.</span> <span class="nav-text">RabbitMQ常用集群模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RabbitMQ镜像集群部署"><span class="nav-number">5.</span> <span class="nav-text">RabbitMQ镜像集群部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rabbitmq-Slave"><span class="nav-number">6.</span> <span class="nav-text">Rabbitmq-Slave</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rabbitmq端口"><span class="nav-number">7.</span> <span class="nav-text">Rabbitmq端口</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RabbitMQ简介"><span class="nav-number">1.</span> <span class="nav-text">RabbitMQ简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Queue（队列）"><span class="nav-number">2.</span> <span class="nav-text">Queue（队列）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exchange"><span class="nav-number">3.</span> <span class="nav-text">Exchange</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RabbitMQ常用集群模式"><span class="nav-number">4.</span> <span class="nav-text">RabbitMQ常用集群模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RabbitMQ镜像集群部署"><span class="nav-number">5.</span> <span class="nav-text">RabbitMQ镜像集群部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rabbitmq-Slave"><span class="nav-number">6.</span> <span class="nav-text">Rabbitmq-Slave</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rabbitmq端口"><span class="nav-number">7.</span> <span class="nav-text">Rabbitmq端口</span></a></li></ol></div>
             
 
           </div>
