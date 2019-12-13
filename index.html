@@ -376,10 +376,9 @@
           
             <h2 id="Rabbitmq简介"><a href="#Rabbitmq简介" class="headerlink" title="Rabbitmq简介"></a>Rabbitmq简介</h2><p>消息队列（Message Queue，简称MQ）。<br>不同进程（process）之间传递消息时，一个进程改动会引发另外一个进程改动，为了隔离这两个进程，<br>就要使用消息队列来进行隔离。还有就是实现消息格式规范，需要对收到消息进行排队。</p>
 <p>RabbitMQ使用Erlang语言编写，在AMQP消息队列协议的基础上完成。</p>
-<p>*<em>这是　RabbitMQ的官网是    <a href="http://www.rabbitmq.com" target="_blank" rel="noopener">http://www.rabbitmq.com</a> *</em></p>
+<p><strong>这是　RabbitMQ的官网是    <a href="http://www.rabbitmq.com" target="_blank" rel="noopener">http://www.rabbitmq.com</a></strong></p>
 <p><img src="https://img-blog.csdnimg.cn/2019052815321142.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzI4NTEzODAx,size_16,color_FFFFFF,t_70" alt></p>
-<p>##Queue（队列）</p>
-<p><strong>Queue</strong><br>Queue（队列）RabbitMQ的作用是存储消息，队列的特性是先进先出。生产者的消息会被送到Queue中，接收者从Queue中取出数据。<br>Queue会平均分配给消费者，可以使用perfetchCount来限制每次发送给消费者的次数。</p>
+<h2 id="Queue（队列）"><a href="#Queue（队列）" class="headerlink" title="Queue（队列）"></a>Queue（队列）</h2><p><strong>Queue</strong><br>Queue（队列）RabbitMQ的作用是存储消息，队列的特性是先进先出。生产者的消息会被送到Queue中，接收者从Queue中取出数据。<br>Queue会平均分配给消费者，可以使用perfetchCount来限制每次发送给消费者的次数。</p>
 <h2 id="Exchange"><a href="#Exchange" class="headerlink" title="Exchange"></a>Exchange</h2><p><strong>Exchange</strong><br>生产者的消息会先推送给Exchange，RabbitMQ是通过Binding将Exchange和Queue连接在一起，这样<br>Exchange就知道如何将消息准确的推送到Queue中去。</p>
 <p><strong>Exchange Type</strong><br>Exchange类型决定是怎样去发送到Queue中去<br>fanout：类型的Exchange路由规则非常简单，它会把所有发送到该Exchange的消息路由到所有与它绑定的Queue中。<br>direct：类型的Exchange路由规则也很简单，它会把消息路由到那些binding key与routing key完全匹配的Queue中<br>topic： 这个规则就是模糊匹配，可以通过通配符满足一部分规则就可以传送。<br>headers：Exchange不依赖于routing key与binding key的匹配规则来路由消息，而是根据发送的消息内容中的headers属性进行匹配。</p>
 <h2 id="RabbitMQ常用集群模式"><a href="#RabbitMQ常用集群模式" class="headerlink" title="RabbitMQ常用集群模式"></a>RabbitMQ常用集群模式</h2><p><strong>1）主备模式：</strong><br>这种模式两台服务器即可，出现故障会切换到备用服务器，缺点就是不会实现负载均衡，会造成资源浪费。</p>
