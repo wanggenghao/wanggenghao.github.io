@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Linux," />
+  <meta name="keywords" content="Hadoop," />
 
 
 
@@ -79,16 +79,19 @@
 
 
 
-<meta name="description" content="Bond简介网卡Bond是通过多张网卡绑定为一个逻辑网卡,实现本地网卡的冗余,带宽扩展和负载均衡。 Bond模式（常用的三种模式）1）mode&#x3D;0(balance-rr):平衡负载模式，有自动备援，但需要”Switch”支援及设定。  2）mode&#x3D;1(active-backup):自动备援模式，其中一条线若断线，其他线路将会自动备援。 3) mode&#x3D;6(balance-alb):平衡负载模式，">
-<meta name="keywords" content="Linux">
+<meta name="description" content="Hadoop简介Hadoop是一个开源的，官网是hadoop.apache.org，可以提供分布式（比如一个文件被分成很多个块，并以副本的方式存储在各个节点中）的存储和计算。  Hadoop核心组件介绍HDFS概述分布式文件系统(HDFS)：HDFS实现将文件分布式存储在很多服务器上HDFS特点：扩展性&amp;amp;容错性&amp;amp;海量数据存储HDFS工作机制：将文件切分成指定大小的数据块并以多副本">
+<meta name="keywords" content="Hadoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos Bond Network">
-<meta property="og:url" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;07&#x2F;Centos-Bond-Network&#x2F;index.html">
+<meta property="og:title" content="HDFS">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;16&#x2F;HDFS&#x2F;index.html">
 <meta property="og:site_name" content="Do what you want!">
-<meta property="og:description" content="Bond简介网卡Bond是通过多张网卡绑定为一个逻辑网卡,实现本地网卡的冗余,带宽扩展和负载均衡。 Bond模式（常用的三种模式）1）mode&#x3D;0(balance-rr):平衡负载模式，有自动备援，但需要”Switch”支援及设定。  2）mode&#x3D;1(active-backup):自动备援模式，其中一条线若断线，其他线路将会自动备援。 3) mode&#x3D;6(balance-alb):平衡负载模式，">
+<meta property="og:description" content="Hadoop简介Hadoop是一个开源的，官网是hadoop.apache.org，可以提供分布式（比如一个文件被分成很多个块，并以副本的方式存储在各个节点中）的存储和计算。  Hadoop核心组件介绍HDFS概述分布式文件系统(HDFS)：HDFS实现将文件分布式存储在很多服务器上HDFS特点：扩展性&amp;amp;容错性&amp;amp;海量数据存储HDFS工作机制：将文件切分成指定大小的数据块并以多副本">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-10T10:16:56.469Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;timgsa.baidu.com&#x2F;timg?image&amp;quality&#x3D;80&amp;size&#x3D;b9999_10000&amp;sec&#x3D;1576474807843&amp;di&#x3D;3870c9e5bcda42f6cfd25bb679cd32dc&amp;imgtype&#x3D;0&amp;src&#x3D;http%3A%2F%2Fbigdataanalyticsnews.com%2Fwp-content%2Fuploads%2F2013%2F08%2FHadoop-elephant-300x248.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;images.51cto.com&#x2F;files&#x2F;uploadimg&#x2F;20130108&#x2F;1006390.png">
+<meta property="og:updated_time" content="2019-12-16T07:56:51.431Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;timgsa.baidu.com&#x2F;timg?image&amp;quality&#x3D;80&amp;size&#x3D;b9999_10000&amp;sec&#x3D;1576474807843&amp;di&#x3D;3870c9e5bcda42f6cfd25bb679cd32dc&amp;imgtype&#x3D;0&amp;src&#x3D;http%3A%2F%2Fbigdataanalyticsnews.com%2Fwp-content%2Fuploads%2F2013%2F08%2FHadoop-elephant-300x248.png">
 
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://www.deephug.wang/2019/12/07/Centos-Bond-Network/"/>
+  <link rel="canonical" href="http://www.deephug.wang/2019/12/16/HDFS/"/>
 
 
 
 
 
-  <title>Centos Bond Network | Do what you want!</title>
+  <title>HDFS | Do what you want!</title>
   
 
 
@@ -241,7 +244,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.deephug.wang/2019/12/07/Centos-Bond-Network/">
+    <link itemprop="mainEntityOfPage" href="http://www.deephug.wang/2019/12/16/HDFS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Genghao">
@@ -258,7 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Centos Bond Network</h1>
+          <h1 class="post-title" itemprop="name headline">HDFS</h1>
         
 
         <div class="post-meta">
@@ -270,8 +273,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-07T22:23:23+08:00">
-                2019-12-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T15:54:07+08:00">
+                2019-12-16
               </time>
             
 
@@ -293,8 +296,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
+                  <a href="/categories/Hadoop/" itemprop="url" rel="index">
+                    <span itemprop="name">Hadoop</span>
                   </a>
                 </span>
 
@@ -329,7 +332,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  342
+                  1.1k
                 </span>
               
 
@@ -345,7 +348,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -366,21 +369,23 @@
       
 
       
-        <h2 id="Bond简介"><a href="#Bond简介" class="headerlink" title="Bond简介"></a>Bond简介</h2><p>网卡Bond是通过多张网卡绑定为一个逻辑网卡,实现本地网卡的冗余,带宽扩展和负载均衡。</p>
-<h2 id="Bond模式（常用的三种模式）"><a href="#Bond模式（常用的三种模式）" class="headerlink" title="Bond模式（常用的三种模式）"></a>Bond模式（常用的三种模式）</h2><p>1）mode=0(balance-rr):平衡负载模式，有自动备援，但需要”Switch”支援及设定。 </p>
-<p>2）mode=1(active-backup):自动备援模式，其中一条线若断线，其他线路将会自动备援。</p>
-<p>3) mode=6(balance-alb):平衡负载模式，有自动备援，不必”Switch”支援及设定。</p>
-<h2 id="配置Bond网卡"><a href="#配置Bond网卡" class="headerlink" title="配置Bond网卡"></a>配置Bond网卡</h2><h3 id="计算节点和存储节点间通信网"><a href="#计算节点和存储节点间通信网" class="headerlink" title="计算节点和存储节点间通信网"></a>计算节点和存储节点间通信网</h3><p><strong>1)配置逻辑网卡</strong><br>vim ifcf-bond-bond0<br>DEVICE=bond0<br>BONDING_OPTS=mode=balance-rr<br>TYPE=Bond<br>BONDING_MASTER=yes<br>BOOTPROTO=none<br>DEFROUTE=yes<br>IPV4_FAILURE_FATAL=no<br>IPV6INIT=no<br>NAME=bond-bond0<br>IPADDR=192.168.10.1<br>ONBOOT=yes<br>PREFIX=24<br>GATEWAY=192.168.10.254</p>
-<p><strong>2)配置物理网卡</strong><br>vim ifcfg-bond-slave-ens37<br>TYPE=Ethernet<br>NAME=bond-slave-ens37<br>DEVICE=ens37<br>NOBOOT=yes<br>MASTER=bond0<br>SLAVE=yes</p>
-<p><strong>3)配置物理网卡</strong><br>vim ifcfg-bond-slave-ens38<br>TYPE=Ethernet<br>NAME=bond-slave-ens38<br>DEVICE=ens38<br>NOBOOT=yes<br>MASTER=bond0<br>SLAVE=yes</p>
-<h3 id="与控制节点通信网"><a href="#与控制节点通信网" class="headerlink" title="与控制节点通信网"></a>与控制节点通信网</h3><p><strong>1)配置逻辑网卡</strong><br>vim ifcfg-bond-bondmt0<br>DEVICE=bondmt0<br>BONDING_OPTS=mode=balance-rr<br>TYPE=Bond<br>BONDING_MASTER=yes<br>BOOTPROTO=none<br>DEFROUTE=no<br>IPV4_FAILURE_FATAL=no<br>NAME=bond-bondmt0<br>ONBOOT=yes<br>IPADDR=192.168.1.1<br>PREFIX=24<br>NM_CONTROLLED=no</p>
-<p><strong>2)配置物理网卡</strong><br>vim ifcfg-bond-slave-ens38<br>TYPE=Ethernet<br>NAME=bond-slave-ens38<br>DEVICE=ens38<br>NOBOOT=yes<br>MASTER=bondmt0<br>SLAVE=yes</p>
-<h3 id="虚拟机IP分配网卡"><a href="#虚拟机IP分配网卡" class="headerlink" title="虚拟机IP分配网卡"></a>虚拟机IP分配网卡</h3><p><strong>1)配置逻辑网卡</strong><br>vim ifcfg-bond-bond1<br>DEVICE=bond1<br>BONDING_OPTS=mode=balance-rr<br>TYPE=Bond<br>BONDING_MASTER=yes<br>BOOTPROTO=none<br>DEFROUTE=no<br>NAME=bond-bond1<br>ONBOOT=yes<br>NM_CONTROLLED=no</p>
-<p><strong>2)配置物理网卡</strong><br>vim ifcfg-bond-slave-ens39<br>TYPE=Ethernet<br>NAME=bond-slave-ens39<br>DEVICE=ens39<br>NOBOOT=yes<br>MASTER=bond1<br>SLAVE=yes</p>
-<h2 id="移除NetworkManager"><a href="#移除NetworkManager" class="headerlink" title="移除NetworkManager"></a>移除NetworkManager</h2><p>yum remove NetworkManager</p>
-<h2 id="重启网络"><a href="#重启网络" class="headerlink" title="重启网络"></a>重启网络</h2><p>/etc/init.d/network restart</p>
+        <p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576474807843&di=3870c9e5bcda42f6cfd25bb679cd32dc&imgtype=0&src=http%3A%2F%2Fbigdataanalyticsnews.com%2Fwp-content%2Fuploads%2F2013%2F08%2FHadoop-elephant-300x248.png" alt></p>
+<h2 id="Hadoop简介"><a href="#Hadoop简介" class="headerlink" title="Hadoop简介"></a>Hadoop简介</h2><p>Hadoop是一个开源的，官网是hadoop.apache.org，可以提供分布式（比如一个文件被分成很多个块，并以副本的<br>方式存储在各个节点中）的存储和计算。</p>
 <hr>
-<p><a href="http://www.deephug.wang">跳转首页</a></p>
+<h2 id="Hadoop核心组件介绍"><a href="#Hadoop核心组件介绍" class="headerlink" title="Hadoop核心组件介绍"></a>Hadoop核心组件介绍</h2><p><strong>HDFS概述</strong><br>分布式文件系统(HDFS)：<br>HDFS实现将文件分布式存储在很多服务器上<br>HDFS特点：扩展性&amp;容错性&amp;海量数据存储<br>HDFS工作机制：将文件切分成指定大小的数据块并以多副本的形式存储在多台服务器上面</p>
+<p><strong>HDFS设计目标</strong><br>Hardware Failure 硬件错误<br>    每个机器只存储文件的部分数据，blocksize=128M,比如有150M的文件，会分成两个块，一个是128M，一个<br>    是另外一部分，block存放在不同的机器上的，由于容错机制，HDFS默认会采用3副本机制。</p>
+<p>Streaming Data Access 流式数据访问<br>    the emphasis is on high throughput of data access rather than low latency of data access.（HDFS关注的是一个吞吐量，而不是低延时。 ）</p>
+<p>Larage Data Sets 大规模数据集<br>    支持大文件存储</p>
+<p><strong>HDFS架构</strong><br><img src="http://images.51cto.com/files/uploadimg/20130108/1006390.png" alt><br>1）NameNode（Master）and DataNodes (Slave)<br>2）Master/Slave架构<br>3) NN(简称):<br>    元数据信息存在Namenode上面，NameNode会记录和DataNode之间的关系比如（副本信息、block分别存放在哪个datanode上面。）<br>    NameNode executes file system namespace operations：CRUD （namenode会对文件执行crud操作），datanode也会向namenode定期来发送自己存储的块。<br>4）DataNode<br>    a file is split into one or more blocks （文件被拆分为一个或多个块）<br>    blocks are stored in a set of datanodes （这些块会被存储在多个datanode上）<br>    负责client客户端发来的数据块block的读和写。<br>7）NameNode executes file system namespace operations：CRUD （namenode会对文件执行crud操作），datanode也会向namenode定期来发送自己存储的块位置信息。<br>8）determines the mapping of blocks to datanodes (NameNode确定block在datanode上的位置)</p>
+<p><strong>HDFS副本机制</strong><br>Data Replication<br>默认3个副本，还有很多特性，参考官网吧！！！</p>
+<p><strong>客户端写数据到HDFS流程</strong>  200M<br>1）Client写数据请求到NameNode<br>2）NN返回ok<br>3）client请求写block1<br>4）NN告知客户端block1会写入哪几个datanode<br>5）Client会找DN1，建立数据传输连接<br>6）DN1会和DN2建立连接,最后返回给Client OK！<br>7）传输block1的数据到Data1<br>8）block1又会被连接写入到后面几个DataNode<br>9）数据全部写完后,DataNode会通知NameNode数据写完,NameNode会把元数据信息记录下来。（文件名—&gt;Block1:3—&gt;DN1 DN2）</p>
+<p><strong>HDFS读取数据流程</strong><br>1）Clinet读数据请求到NameNode<br>2）NN返回ok<br>3）NN告知Client文件的元数据信息<br>4）Client发送读取请求到DN1<br>5）DN1返回数据流给Client</p>
+<p><strong>HDFS的元数据管理</strong><br>    元数据：HDFS的目录结构以及每个文件的Block信息（id,副本数,block存储在哪个DN上）<br>    存在上面地方：对应配置 ${hadoop.tmp.dir}/name/…<br>    元数据存储在文件中：<br>    默认是存储在内存中：<br>    <strong>Q1:元数据都存放在内存中，如果这个机器挂了怎么办？</strong><br>    定期将内存中的元数据信息序列化到磁盘,fsimage</p>
+<pre><code>**Q2：如果半个小时同步一次，那数据肯定也是不一样的。**
+edits日志，记录了所有时间段内所有对HDFS相关的操作命令，如果这个时候机器挂了，内存中的元数据没了，这个时候edits日志会和fsimage进行一个合并
+形成新的fsimage，重启后会加载到内存中，就不会出现丢失了！这时候会有一个问题，如果合并的操作也交给NN来操作，那它的压力就会太大了，这时候就会
+使用一个Seconday NN,这个Seconday NN会把 NameNode的fsimage和edits日志(滚动更新)拉取到自己本身，加载磁盘文件到内存：反序列化；将edits中记录
+的所有对于HDFS做的操作都会更新到内存中去，再把内存中的东西在形成一个新的fsimage，再将新的fsimage替换老的fsimage。这个操作叫做Cheekpoint！！！</code></pre><p><strong>HDFS SafeMode</strong><br>    在启动HDFS当中，NameNode会进入一个SafeMode（安全模式）状态. 这个状态下没有办法进行数据的读写操作. NameNode会接受到一个心跳和blocak块的汇报信息，因为NameNode要知道<br>    DataNode是不是活着. 这个时候一般会在NameNode上检查一个30S，就会退出安全模式！</p>
 
       
     </div>
@@ -422,7 +427,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
+            <a href="/tags/Hadoop/" rel="tag"># Hadoop</a>
           
         </div>
       
@@ -435,15 +440,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/12/13/RabbitMQ%E9%95%9C%E5%83%8F%E9%9B%86%E7%BE%A4/" rel="next" title="RabbitMQ镜像集群">
+                <i class="fa fa-chevron-left"></i> RabbitMQ镜像集群
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/09/OpenStack%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E5%92%8C%E5%90%84%E7%BB%84%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB/" rel="prev" title="OpenStack简介及组件介绍">
-                OpenStack简介及组件介绍 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -589,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bond简介"><span class="nav-number">1.</span> <span class="nav-text">Bond简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bond模式（常用的三种模式）"><span class="nav-number">2.</span> <span class="nav-text">Bond模式（常用的三种模式）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Bond网卡"><span class="nav-number">3.</span> <span class="nav-text">配置Bond网卡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算节点和存储节点间通信网"><span class="nav-number">3.1.</span> <span class="nav-text">计算节点和存储节点间通信网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与控制节点通信网"><span class="nav-number">3.2.</span> <span class="nav-text">与控制节点通信网</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟机IP分配网卡"><span class="nav-number">3.3.</span> <span class="nav-text">虚拟机IP分配网卡</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移除NetworkManager"><span class="nav-number">4.</span> <span class="nav-text">移除NetworkManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重启网络"><span class="nav-number">5.</span> <span class="nav-text">重启网络</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop简介"><span class="nav-number">1.</span> <span class="nav-text">Hadoop简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hadoop核心组件介绍"><span class="nav-number">2.</span> <span class="nav-text">Hadoop核心组件介绍</span></a></li></ol></div>
             
 
           </div>
