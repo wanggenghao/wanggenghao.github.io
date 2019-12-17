@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>狭义Hadoop VS 广义Hadoop</title>
+    <url>/2019/12/17/%E7%8B%AD%E4%B9%89Hadoop-VS-%E5%B9%BF%E4%B9%89Hadoop/</url>
+    <content><![CDATA[<p><strong>狭义Hadoop VS 广义Hadoop</strong><br>狭义Hadoop：只是Hadoop框架里包含的三个部分，分布式存储（HDFS）、分布式计算（MapReduce）、资源调度（YARN）的平台;</p>
+<p>广义Hadoop：指的是Hadoop生态系统,HDFS、YARN、Map Reduce、Hive（SQL引擎）做一些统计、HBASE（大数据里的数据库）、R语言（统计分析）<br>Pig（脚本）、oozie（作业的调度）、Zookerrper（管理者）、Flume（日志收集框架，把日志收集到Hadoop中）、Sqoop（把关系型数据库和Hadoop做一个数据的导入导出);</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hadoop</title>
     <url>/2019/12/16/Hadoop/</url>
     <content><![CDATA[<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576474807843&di=3870c9e5bcda42f6cfd25bb679cd32dc&imgtype=0&src=http%3A%2F%2Fbigdataanalyticsnews.com%2Fwp-content%2Fuploads%2F2013%2F08%2FHadoop-elephant-300x248.png" alt></p>
