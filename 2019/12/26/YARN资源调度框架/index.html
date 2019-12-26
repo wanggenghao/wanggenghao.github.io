@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Kubernetes," />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="Kubernetes简介Kubetnetes源于希腊语,意思为“ 舵手“的意思,k和s之间有8个字母，简称k8s~K8S是谷歌2014年发版的一个开源项目,主要用途就是管理大量的容器,把Docker比作为鲸鱼,把K8S比喻成舵手,引领Docker吧~虽然这个项目在2014年发布，但是这个项目已经非常成熟，谷歌内部使用的容器管理系统叫Borg,现在改名叫做Omega，所以K8S相当于Borg的开源版">
-<meta name="keywords" content="Kubernetes">
+<meta name="description" content="YARN概述YARN是一个资源调度框架,是一个资源管理（RM）和作业调度和监控（AM）,单独的两个进程。 YARN产生背景从MepReduve1.x说起master&#x2F;slave：JobTrancker&#x2F;TaskTrackerJobTrancker单节点、压力大仅仅能够支持mapreduce作业，其他spark之类的不支持 YARN架构这个架构就是master&#x2F;slave架构，一个resourcem">
+<meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kubernetes">
-<meta property="og:url" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;26&#x2F;Kubernetes%E7%AE%80%E4%BB%8B&#x2F;index.html">
+<meta property="og:title" content="YARN资源调度框架">
+<meta property="og:url" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;26&#x2F;YARN%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6&#x2F;index.html">
 <meta property="og:site_name" content="Do what you want!">
-<meta property="og:description" content="Kubernetes简介Kubetnetes源于希腊语,意思为“ 舵手“的意思,k和s之间有8个字母，简称k8s~K8S是谷歌2014年发版的一个开源项目,主要用途就是管理大量的容器,把Docker比作为鲸鱼,把K8S比喻成舵手,引领Docker吧~虽然这个项目在2014年发布，但是这个项目已经非常成熟，谷歌内部使用的容器管理系统叫Borg,现在改名叫做Omega，所以K8S相当于Borg的开源版">
+<meta property="og:description" content="YARN概述YARN是一个资源调度框架,是一个资源管理（RM）和作业调度和监控（AM）,单独的两个进程。 YARN产生背景从MepReduve1.x说起master&#x2F;slave：JobTrancker&#x2F;TaskTrackerJobTrancker单节点、压力大仅仅能够支持mapreduce作业，其他spark之类的不支持 YARN架构这个架构就是master&#x2F;slave架构，一个resourcem">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;26&#x2F;Kubernetes%E7%AE%80%E4%BB%8B&#x2F;7e7136871d8a439086c3cb7c6e8caf54.jpg">
-<meta property="og:image" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;26&#x2F;Kubernetes%E7%AE%80%E4%BB%8B&#x2F;c34f059b7732ac8fda6984d889c9dab.png">
-<meta property="og:updated_time" content="2019-12-26T03:00:08.618Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;26&#x2F;YARN%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6&#x2F;8c1925275c362fd066813f8439d9c42.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;26&#x2F;YARN%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6&#x2F;1.png">
+<meta property="og:updated_time" content="2019-12-26T10:00:14.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;26&#x2F;Kubernetes%E7%AE%80%E4%BB%8B&#x2F;7e7136871d8a439086c3cb7c6e8caf54.jpg">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;www.deephug.wang&#x2F;2019&#x2F;12&#x2F;26&#x2F;YARN%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6&#x2F;8c1925275c362fd066813f8439d9c42.jpg">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://www.deephug.wang/2019/12/26/Kubernetes简介/"/>
+  <link rel="canonical" href="http://www.deephug.wang/2019/12/26/YARN资源调度框架/"/>
 
 
 
 
 
-  <title>Kubernetes | Do what you want!</title>
+  <title>YARN资源调度框架 | Do what you want!</title>
   
 
 
@@ -254,7 +254,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.deephug.wang/2019/12/26/Kubernetes%E7%AE%80%E4%BB%8B/">
+    <link itemprop="mainEntityOfPage" href="http://www.deephug.wang/2019/12/26/YARN%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Genghao">
@@ -271,7 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Kubernetes</h1>
+          <h1 class="post-title" itemprop="name headline">YARN资源调度框架</h1>
         
 
         <div class="post-meta">
@@ -283,7 +283,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-26T09:42:28+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-26T17:39:00+08:00">
                 2019-12-26
               </time>
             
@@ -306,8 +306,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index">
-                    <span itemprop="name">Kubernetes</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -342,7 +342,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  833
+                  368
                 </span>
               
 
@@ -358,7 +358,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  1
                 </span>
               
             </div>
@@ -379,21 +379,10 @@
       
 
       
-        <p><img src="/2019/12/26/Kubernetes%E7%AE%80%E4%BB%8B/7e7136871d8a439086c3cb7c6e8caf54.jpg" alt><br><strong>Kubernetes简介</strong><br>Kubetnetes源于希腊语,意思为“ 舵手“的意思,k和s之间有8个字母，简称k8s~<br>K8S是谷歌2014年发版的一个开源项目,主要用途就是管理大量的容器,把Docker比作为鲸鱼,把K8S比喻成舵手,引领Docker吧~<br>虽然这个项目在2014年发布，但是这个项目已经非常成熟，谷歌内部使用的容器管理系统叫Borg,现在改名叫做Omega，所以K8S相当于Borg的开源版本.~</p>
-<hr>
-<p><strong>Kubernetes核心概念</strong><br>ReplicaSet（RS）<br>副本集, 在同一个应用下要运行几个Pod，RS就是负责管这件事的. 比如同一个应用下要运行两个Pod,RS就会把这两个Pod运行起来,如果中途有个Pod故障了,RS会始终保持Pod为2,还会再次启动一个Pod.</p>
-<p>Deployment<br>比如一个旧的应用部署在两个Pod上,你现在想更新这个应用,更新的其实就是Deployment,Deployment会自动帮助我们创建一个RS副本集,并且会启动一个新版本的Pod,通过健康状态检查后,Deployment会控制旧的RS把旧的Pod删除,新的RS会在创建一个新版本的Pod,再通过健康状态检查后,还会把旧的RS中的Pod删除掉,把旧的RS也会清除掉.这就是一个滚动部署的过程.</p>
-<p>Service<br>Service找到Pod也是通过打标签(Label)的方式,首先可以给某个Pod打上一个标签,Serive通过配置好的一个Selector等于Pod的标签,这样Service就会自动找到对应标签的Pod.<br> Service对外也会有个固定的IP，客户端就可以通过这个IP，通过Node上的Kube-proxy就可以访问到Service，找到对应的Pod.</p>
-<p>ETCD<br>ETCD是Kubernetes中的后端存储持久化。ETCD负责保存K8S Cluster的配置信息和各种资源状态信息。</p>
-<p>API Server<br>APIServer,作为K8S集群中的前端接口,通过API Server可以管理集群中的各种资源.</p>
-<p>Scheduler（调度器）<br>调度器,比如客户端发来一个Deployment请求,首先会选择一个节点,把Pod调度上去,Secheduler它会收集每个worker的资源信息,选择出一个最优的节点和Pod建立起关系,告诉API Server,然后API Server会把这个信息存到ETCD当中. </p>
-<p>ControllerManager（控制器）<br>ControllerManager会通过API Server来获取一些ETCD节点一些变化,比如Pod和节点的绑定关系,通过发现当前Pod属于等待被调度的状态,ControllerManager就会完成这个调度,让这个Pod运行起来.</p>
-<p>节点控制器(Node Controller)：当有节点移除的时候负责响应<br>副本控制器(Replication Controller)：负责维护系统中的副本数<br>服务控制器(Service Controller):负责管理服务的</p>
-<p>Kubelet<br>Pod是怎么在Worker运行起来？<br>Kubelet会在每个Worker存在,会去调用docker，最终运行起来Pod</p>
-<p><strong>Kubernetes集群部署对比</strong><br>1）社区方案<br>缺点：杂乱、不可靠、升级困难</p>
-<p>2）Kubeadm<br>优点：官方推荐的Kubeadm,部署简单,但是不适用于生产环境！升级简单！<br>缺点：不易维护，文档不够细致！</p>
-<p>3）Binary<br>优点：易于维护,生产环境推荐方案,灵活.升级方便<br>缺点：官方没有文档, 安装复杂!</p>
-<p><strong>下图是Binary部署好的成品</strong><br><img src="/2019/12/26/Kubernetes%E7%AE%80%E4%BB%8B/c34f059b7732ac8fda6984d889c9dab.png" alt></p>
+        <p><strong>YARN概述</strong><br>YARN是一个资源调度框架,是一个资源管理（RM）和作业调度和监控（AM）,单独的两个进程。</p>
+<p><strong>YARN产生背景</strong><br>从MepReduve1.x说起<br>master/slave：JobTrancker/TaskTracker<br>JobTrancker单节点、压力大<br>仅仅能够支持mapreduce作业，其他spark之类的不支持</p>
+<p><strong>YARN架构</strong><br><img src="/2019/12/26/YARN%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6/8c1925275c362fd066813f8439d9c42.jpg" alt><br>这个架构就是master/slave架构，一个resourcemanager对应多个nodemanager。<br>Client：<br>向RM提交任务,杀死任务等<br>Container：<br>任务的运行的逻辑概念<br>task是运行在Comtainer中的,可以运行AM/MapTask/ReduceTask<br>ApplicationMaster：<br>每个应用程序对应一个AM（比如你提交一个MapReduce作业，那就有对应的MapReduce AM，如果提交的是Spark作业就有对应的Spark AM）<br>AM向RM申请资源用于在NM上启动对应的Task<br>为每个task向RM申请资源（container）<br>NodeManager：<br>干活<br>向RM发送心跳信息、任务执行情况<br>接受来自RM请求来启动任务<br>处理来自AM的命令<br>ResourceManager：<br>集群中同一时刻对外提供服务的只有1个<br>处理来自客户端的请求：提交、杀死<br>启动/监控AM<br>监控NM<br>资源相关的</p>
+<p><strong>MapReduce跑在YARN执行流程</strong><br><img src="/2019/12/26/YARN%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6/1.png" alt><br>Clinet提交一个程序到YARN上来运行，首先会和RM进行访问,在就是RM会让NM为我们的作业分配Container，在Container中运行AM,AM启动后首先要注册到RM，因为RM是做统一的全局资源管理，AM向RM申请资源在NM上运行Container，里面可以跑一些Task，包括MapTask、ReduceTask。</p>
 
       
     </div>
@@ -435,7 +424,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Kubernetes/" rel="tag"># Kubernetes</a>
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
         </div>
       
@@ -448,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/17/%E7%8B%AD%E4%B9%89Hadoop-VS-%E5%B9%BF%E4%B9%89Hadoop/" rel="next" title="狭义Hadoop VS 广义Hadoop">
-                <i class="fa fa-chevron-left"></i> 狭义Hadoop VS 广义Hadoop
+              <a href="/2019/12/26/MapReduce%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6/" rel="next" title="MapReduce分布式计算框架">
+                <i class="fa fa-chevron-left"></i> MapReduce分布式计算框架
               </a>
             
           </div>
@@ -457,10 +446,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/26/Hive/" rel="prev" title="Hive">
-                Hive <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

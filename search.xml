@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>YARN资源调度框架</title>
+    <url>/2019/12/26/YARN%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6/</url>
+    <content><![CDATA[<p><strong>YARN概述</strong><br>YARN是一个资源调度框架,是一个资源管理（RM）和作业调度和监控（AM）,单独的两个进程。</p>
+<p><strong>YARN产生背景</strong><br>从MepReduve1.x说起<br>master/slave：JobTrancker/TaskTracker<br>JobTrancker单节点、压力大<br>仅仅能够支持mapreduce作业，其他spark之类的不支持</p>
+<p><strong>YARN架构</strong><br><img src="/2019/12/26/YARN%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6/8c1925275c362fd066813f8439d9c42.jpg" alt><br>这个架构就是master/slave架构，一个resourcemanager对应多个nodemanager。<br>Client：<br>向RM提交任务,杀死任务等<br>Container：<br>任务的运行的逻辑概念<br>task是运行在Comtainer中的,可以运行AM/MapTask/ReduceTask<br>ApplicationMaster：<br>每个应用程序对应一个AM（比如你提交一个MapReduce作业，那就有对应的MapReduce AM，如果提交的是Spark作业就有对应的Spark AM）<br>AM向RM申请资源用于在NM上启动对应的Task<br>为每个task向RM申请资源（container）<br>NodeManager：<br>干活<br>向RM发送心跳信息、任务执行情况<br>接受来自RM请求来启动任务<br>处理来自AM的命令<br>ResourceManager：<br>集群中同一时刻对外提供服务的只有1个<br>处理来自客户端的请求：提交、杀死<br>启动/监控AM<br>监控NM<br>资源相关的</p>
+<p><strong>MapReduce跑在YARN执行流程</strong><br><img src="/2019/12/26/YARN%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6/1.png" alt><br>Clinet提交一个程序到YARN上来运行，首先会和RM进行访问,在就是RM会让NM为我们的作业分配Container，在Container中运行AM,AM启动后首先要注册到RM，因为RM是做统一的全局资源管理，AM向RM申请资源在NM上运行Container，里面可以跑一些Task，包括MapTask、ReduceTask。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MapReduce分布式计算框架</title>
     <url>/2019/12/26/MapReduce%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6/</url>
     <content><![CDATA[<p><strong>MapReduce简介</strong><br>MapReduce是一个分布式计算框架<br>优点：海量数据离线处理&amp;易开发&amp;易运行–当然现在的像Spark会比MP更好开发<br>缺点：不适合实时流式计算</p>
