@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hive</title>
+    <url>/2019/12/26/Hive/</url>
+    <content><![CDATA[<p><img src="/2019/12/26/Hive/6015b4b2314f1ab05a9969acc7f41988.jpg" alt></p>
+<h2 id="数据仓库Hive"><a href="#数据仓库Hive" class="headerlink" title="数据仓库Hive"></a>数据仓库Hive</h2><p><strong>1）Hive产生背景</strong></p>
+<p>MapReduce编程不方便，比如一个简单的词频统计功能,就要写比较多的代码,而且改也会比较麻烦.<br>HDFS上的文件上并没有schema的概念,schema（表名、字段名、数据类型之类的）,没办法直接使用SQL进行查询</p>
+<p><strong>2）Hive概述</strong></p>
+<p>由Facebook开源,用于海量结构化日志数据统计<br>构建在Hadoop之上的数据仓库（Hive的数据是存放在HDFS上的,通过MapReduce进行计算,提交到YARN上来运行的）<br>Hive提供的SQL查询语言：HQL其实是和SQL一样的<br>Hive底层支持多种引擎：MR/Spark  1.x默认MR 2.x默认Spark,通过HQL就可以直接让引擎改成MR或者Spark</p>
+<p><strong>3) 为什么要使用Hive</strong></p>
+<p>Hive数据是存放在HDFS,它上面是没有schema的信息,就是一个普通的文本.<br>统一的元数据信息（记录数据的数据）是放在MySQL中。第1个数据是HDFS上面的数据,第2个数据是描述HDFS的数据</p>
+]]></content>
+      <categories>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Kubernetes</title>
     <url>/2019/12/26/Kubernetes%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<p><strong>Kubernetes简介</strong><br>Kubetnetes源于希腊语,意思为“ 舵手“的意思,k和s之间有8个字母，简称k8s~<br>K8S是谷歌2014年发版的一个开源项目,主要用途就是管理大量的容器,把Docker比作为鲸鱼,把K8S比喻成舵手,引领Docker吧~<br>虽然这个项目在2014年发布，但是这个项目已经非常成熟，谷歌内部使用的容器管理系统叫Borg,现在改名叫做Omega，所以K8S相当于Borg的开源版本.~</p>
