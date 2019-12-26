@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Kubernetes简介</title>
+    <title>Kubernetes</title>
     <url>/2019/12/26/Kubernetes%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<p><strong>kubernetes简介</strong><br>Kubetnetes源于希腊语,意思为“ 舵手“的意思,k和s之间有8个字母，简称k8s~<br>K8S是谷歌2014年发版的一个开源项目,主要用途就是管理大量的容器,把Docker比作为鲸鱼,把K8S比喻成舵手,引领Docker吧~<br>虽然这个项目在2014年发布，但是这个项目已经非常成熟，谷歌内部使用的容器管理系统叫Borg,现在改名叫做Omega，所以K8S相当于Borg的开源版本.~</p>
+    <content><![CDATA[<p><strong>Kubernetes简介</strong><br>Kubetnetes源于希腊语,意思为“ 舵手“的意思,k和s之间有8个字母，简称k8s~<br>K8S是谷歌2014年发版的一个开源项目,主要用途就是管理大量的容器,把Docker比作为鲸鱼,把K8S比喻成舵手,引领Docker吧~<br>虽然这个项目在2014年发布，但是这个项目已经非常成熟，谷歌内部使用的容器管理系统叫Borg,现在改名叫做Omega，所以K8S相当于Borg的开源版本.~</p>
+<hr>
+<p><strong>Kubernetes核心概念</strong><br>ReplicaSet（RS）<br>副本集, 在同一个应用下要运行几个Pod，RS就是负责管这件事的. 比如同一个应用下要运行两个Pod,RS就会把这两个Pod运行起来,如果中途有个Pod故障了,RS会始终保持Pod为2,还会再次启动一个Pod.</p>
+<p>Deployment<br>比如一个旧的应用部署在两个Pod上,你现在想更新这个应用,更新的其实就是Deployment,Deployment会自动帮助我们创建一个RS副本集,并且会启动一个新版本的Pod,通过健康状态检查后,Deployment会控制旧的RS把旧的Pod删除,新的RS会在创建一个新版本的Pod,再通过健康状态检查后,还会把旧的RS中的Pod删除掉,把旧的RS也会清除掉.这就是一个滚动部署的过程.</p>
+<p>Service<br>Service找到Pod也是通过打标签(Label)的方式,首先可以给某个Pod打上一个标签,Serive通过配置好的一个Selector等于Pod的标签,这样Service就会自动找到对应标签的Pod.<br> Service对外也会有个固定的IP，客户端就可以通过这个IP，通过Node上的Kube-proxy就可以访问到Service，找到对应的Pod.</p>
+<p>ETCD<br>ETCD是Kubernetes中的后端存储持久化。ETCD负责保存K8S Cluster的配置信息和各种资源状态信息。</p>
+<p>API Server<br>APIServer,作为K8S集群中的前端接口,通过API Server可以管理集群中的各种资源.</p>
+<p>Scheduler（调度器）<br>调度器,比如客户端发来一个Deployment请求,首先会选择一个节点,把Pod调度上去,Secheduler它会收集每个worker的资源信息,选择出一个最优的节点和Pod建立起关系,告诉API Server,然后API Server会把这个信息存到ETCD当中. </p>
+<p>ControllerManager（控制器）<br>ControllerManager会通过API Server来获取一些ETCD节点一些变化,比如Pod和节点的绑定关系,通过发现当前Pod属于等待被调度的状态,ControllerManager就会完成这个调度,让这个Pod运行起来.</p>
+<p>节点控制器(Node Controller)：当有节点移除的时候负责响应<br>副本控制器(Replication Controller)：负责维护系统中的副本数<br>服务控制器(Service Controller):负责管理服务的</p>
+<p>Kubelet<br>Pod是怎么在Worker运行起来？<br>Kubelet会在每个Worker存在,会去调用docker，最终运行起来Pod</p>
+<p><strong>Kubernetes集群部署对比</strong><br>1）社区方案<br>缺点：杂乱、不可靠、升级困难</p>
+<p>2）Kubeadm<br>优点：官方推荐的Kubeadm,部署简单,但是不适用于生产环境！升级简单！<br>缺点：不易维护，文档不够细致！</p>
+<p>3）Binary<br>优点：易于维护,生产环境推荐方案,灵活.升级方便<br>缺点：官方没有文档, 安装复杂!</p>
+<p><strong>下图是Binary部署好的成品</strong><br><img src="/.wang//c34f059b7732ac8fda6984d889c9dab.png" alt></p>
 ]]></content>
       <categories>
         <category>Kubernetes</category>
