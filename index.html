@@ -553,7 +553,7 @@
       
         
           
-            <p><strong>Kubernetes简介</strong><br>Kubetnetes源于希腊语,意思为“ 舵手“的意思,k和s之间有8个字母，简称k8s~<br>K8S是谷歌2014年发版的一个开源项目,主要用途就是管理大量的容器,把Docker比作为鲸鱼,把K8S比喻成舵手,引领Docker吧~<br>虽然这个项目在2014年发布，但是这个项目已经非常成熟，谷歌内部使用的容器管理系统叫Borg,现在改名叫做Omega，所以K8S相当于Borg的开源版本.~</p>
+            <p><img src="/2019/12/26/Kubernetes%E7%AE%80%E4%BB%8B/7e7136871d8a439086c3cb7c6e8caf54.jpg" alt><br><strong>Kubernetes简介</strong><br>Kubetnetes源于希腊语,意思为“ 舵手“的意思,k和s之间有8个字母，简称k8s~<br>K8S是谷歌2014年发版的一个开源项目,主要用途就是管理大量的容器,把Docker比作为鲸鱼,把K8S比喻成舵手,引领Docker吧~<br>虽然这个项目在2014年发布，但是这个项目已经非常成熟，谷歌内部使用的容器管理系统叫Borg,现在改名叫做Omega，所以K8S相当于Borg的开源版本.~</p>
 <hr>
 <p><strong>Kubernetes核心概念</strong><br>ReplicaSet（RS）<br>副本集, 在同一个应用下要运行几个Pod，RS就是负责管这件事的. 比如同一个应用下要运行两个Pod,RS就会把这两个Pod运行起来,如果中途有个Pod故障了,RS会始终保持Pod为2,还会再次启动一个Pod.</p>
 <p>Deployment<br>比如一个旧的应用部署在两个Pod上,你现在想更新这个应用,更新的其实就是Deployment,Deployment会自动帮助我们创建一个RS副本集,并且会启动一个新版本的Pod,通过健康状态检查后,Deployment会控制旧的RS把旧的Pod删除,新的RS会在创建一个新版本的Pod,再通过健康状态检查后,还会把旧的RS中的Pod删除掉,把旧的RS也会清除掉.这就是一个滚动部署的过程.</p>
