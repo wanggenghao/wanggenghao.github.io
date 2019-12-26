@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Kubernetes简介</title>
+    <url>/2019/12/26/Kubernetes%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<p><strong>kubernetes简介</strong><br>Kubetnetes源于希腊语,意思为“ 舵手“的意思,k和s之间有8个字母，简称k8s~<br>K8S是谷歌2014年发版的一个开源项目,主要用途就是管理大量的容器,把Docker比作为鲸鱼,把K8S比喻成舵手,引领Docker吧~<br>虽然这个项目在2014年发布，但是这个项目已经非常成熟，谷歌内部使用的容器管理系统叫Borg,现在改名叫做Omega，所以K8S相当于Borg的开源版本.~</p>
+]]></content>
+      <categories>
+        <category>Kubernetes</category>
+      </categories>
+      <tags>
+        <tag>Kubernetes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>狭义Hadoop VS 广义Hadoop</title>
     <url>/2019/12/17/%E7%8B%AD%E4%B9%89Hadoop-VS-%E5%B9%BF%E4%B9%89Hadoop/</url>
     <content><![CDATA[<p><strong>狭义Hadoop</strong><br>狭义Hadoop只是Hadoop框架里包含的三个部分，分布式存储（HDFS）、分布式计算（MapReduce）、资源调度（YARN）的平台;</p>
