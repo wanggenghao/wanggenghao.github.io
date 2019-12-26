@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MapReduce分布式计算框架</title>
+    <url>/2019/12/26/MapReduce%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6/</url>
+    <content><![CDATA[<p><strong>MapReduce简介</strong><br>MapReduce是一个分布式计算框架<br>优点：海量数据离线处理&amp;易开发&amp;易运行–当然现在的像Spark会比MP更好开发<br>缺点：不适合实时流式计算</p>
+<p><img src="/2019/12/26/MapReduce%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6/1.png" alt></p>
+<p><strong>MapReduce模型执行步骤</strong><br>1）首先一般会从HDFS上来进行读取文件,inputfomat.<br>2）首先Splitting一般会按照block大小来拆分,拆分出来的文件之间是没有关系的.<br>3）Mapping会对这些拆开的文件按照指定的分隔符拆开赋值上一个1.<br>4）Map到Reduce这个过程叫做Shuffing,按照key的规则丢到一起去.<br>5）Reduce就是将这些拆分好的文件进行一个合并,把结果输出.</p>
+]]></content>
+      <categories>
+        <category>Hadoop</category>
+      </categories>
+      <tags>
+        <tag>Hadoop</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hive</title>
     <url>/2019/12/26/Hive/</url>
     <content><![CDATA[<p><img src="/2019/12/26/Hive/6015b4b2314f1ab05a9969acc7f41988.jpg" alt></p>
