@@ -549,7 +549,7 @@
         
           
             <p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576474807843&di=3870c9e5bcda42f6cfd25bb679cd32dc&imgtype=0&src=http%3A%2F%2Fbigdataanalyticsnews.com%2Fwp-content%2Fuploads%2F2013%2F08%2FHadoop-elephant-300x248.png" alt></p>
-<h2 id="Hadoop简介"><a href="#Hadoop简介" class="headerlink" title="Hadoop简介"></a>Hadoop简介</h2><p>Hadoop是一个开源的，官网是hadoop.apache.org，可以提供分布式（比如一个文件被分成很多个块，并以副本的<br>方式存储在各个节点中）的存储和计算。</p>
+<h2 id="Hadoop简介"><a href="#Hadoop简介" class="headerlink" title="Hadoop简介"></a>Hadoop简介</h2><p>Hadoop是一个开源的，官网是hadoop.apache.org，可以提供分布式（比如一个文件被分成很多个块，并以副本的方式存储在各个节点中）的存储和计算。</p>
 <h2 id="Hadoop常用发行版和选型"><a href="#Hadoop常用发行版和选型" class="headerlink" title="Hadoop常用发行版和选型"></a>Hadoop常用发行版和选型</h2><pre><code>Apache ：
     优点：纯开源
     缺点：不同版本和框架之间整合 jar包冲突
@@ -559,8 +559,7 @@ CDH：
 
 Hortonworks（HDP）：
     优点：原装Hadoop、纯开源、企业可以根据他的页面框架改造，发布自己的数据平台
-    缺点：企业级安全不开源</code></pre><h2 id="Hadoop简介-1"><a href="#Hadoop简介-1" class="headerlink" title="Hadoop简介"></a>Hadoop简介</h2><p>Hadoop是一个开源的，官网是hadoop.apache.org，可以提供分布式（比如一个文件被分成很多个块，并以副本的<br>方式存储在各个节点中）的存储和计算。</p>
-<h2 id="Hadoop核心组件介绍"><a href="#Hadoop核心组件介绍" class="headerlink" title="Hadoop核心组件介绍"></a>Hadoop核心组件介绍</h2><p><strong>HDFS概述</strong><br>分布式文件系统(HDFS)：<br>HDFS实现将文件分布式存储在很多服务器上<br>HDFS特点：扩展性&amp;容错性&amp;海量数据存储<br>HDFS工作机制：将文件切分成指定大小的数据块并以多副本的形式存储在多台服务器上面</p>
+    缺点：企业级安全不开源</code></pre><h2 id="Hadoop核心组件介绍"><a href="#Hadoop核心组件介绍" class="headerlink" title="Hadoop核心组件介绍"></a>Hadoop核心组件介绍</h2><p><strong>HDFS概述</strong><br>分布式文件系统(HDFS)：<br>HDFS实现将文件分布式存储在很多服务器上<br>HDFS特点：扩展性&amp;容错性&amp;海量数据存储<br>HDFS工作机制：将文件切分成指定大小的数据块并以多副本的形式存储在多台服务器上面</p>
 <p><strong>HDFS设计目标</strong><br>Hardware Failure 硬件错误<br>    每个机器只存储文件的部分数据，blocksize=128M,比如有150M的文件，会分成两个块，一个是128M，一个<br>    是另外一部分，block存放在不同的机器上的，由于容错机制，HDFS默认会采用3副本机制。</p>
 <p>Streaming Data Access 流式数据访问<br>    the emphasis is on high throughput of data access rather than low latency of data access.（HDFS关注的是一个吞吐量，而不是低延时。 ）</p>
 <p>Larage Data Sets 大规模数据集<br>    支持大文件存储</p>
