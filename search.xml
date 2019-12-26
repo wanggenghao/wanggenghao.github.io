@@ -17,7 +17,7 @@
 <p><strong>Kubernetes集群部署对比</strong><br>1）社区方案<br>缺点：杂乱、不可靠、升级困难</p>
 <p>2）Kubeadm<br>优点：官方推荐的Kubeadm,部署简单,但是不适用于生产环境！升级简单！<br>缺点：不易维护，文档不够细致！</p>
 <p>3）Binary<br>优点：易于维护,生产环境推荐方案,灵活.升级方便<br>缺点：官方没有文档, 安装复杂!</p>
-<p><strong>下图是Binary部署好的成品</strong><br><img src="/.wang//_posts/Kubernetes%E7%AE%80%E4%BB%8B/c34f059b7732ac8fda6984d889c9dab.png" alt></p>
+<p><strong>下图是Binary部署好的成品</strong><br><img src="/.wang//c34f059b7732ac8fda6984d889c9dab.png" alt></p>
 ]]></content>
       <categories>
         <category>Kubernetes</category>
