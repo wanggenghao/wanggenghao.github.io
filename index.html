@@ -335,7 +335,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  267
+                  418
                 </span>
               
 
@@ -381,6 +381,9 @@
 <p>由Facebook开源,用于海量结构化日志数据统计<br>构建在Hadoop之上的数据仓库（Hive的数据是存放在HDFS上的,通过MapReduce进行计算,提交到YARN上来运行的）<br>Hive提供的SQL查询语言：HQL其实是和SQL一样的<br>Hive底层支持多种引擎：MR/Spark  1.x默认MR 2.x默认Spark,通过HQL就可以直接让引擎改成MR或者Spark</p>
 <p><strong>3) 为什么要使用Hive</strong></p>
 <p>Hive数据是存放在HDFS,它上面是没有schema的信息,就是一个普通的文本.<br>统一的元数据信息（记录数据的数据）是放在MySQL中。第1个数据是HDFS上面的数据,第2个数据是描述HDFS的数据</p>
+<h2 id="Hive体系架构"><a href="#Hive体系架构" class="headerlink" title="Hive体系架构"></a>Hive体系架构</h2><p><img src="/2019/12/26/Hive/1.png" alt></p>
+<p><strong>Client</strong><br>shell、thrift/jdbc（server/jdbc）、WebUI（HUE/Zeppelin）<br><strong>Metastore元数据信息(一般存放在MySQL)</strong><br>database：数据库名字、创建者信息…<br>table：表名字、创建者信息…</p>
+<p>Hive（数据仓库）就是写SQL语句的,下层是将你通过Hive写的的SQL语句经过一系列的优化最后转换成MapReduce,跑在Hadoop之上来运行。在查询和使用的SQL的过程会涉及到一些库和表，因为Hive是基于表来操作的,这些表和数据库都是作为元数据信息存放到metastore里面,metastore是存放到MySQL里面.</p>
 
           
         
