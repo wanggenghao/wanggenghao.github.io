@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>今天也要开心啊</title>
+    <url>/2020/01/21/%E4%BB%8A%E5%A4%A9%E4%B9%9F%E8%A6%81%E5%BC%80%E5%BF%83%E5%95%8A/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>YARN资源调度框架</title>
     <url>/2019/12/26/YARN%E8%B5%84%E6%BA%90%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6/</url>
     <content><![CDATA[<p><strong>YARN概述</strong><br>YARN是一个资源调度框架,是一个资源管理（RM）和作业调度和监控（AM）,单独的两个进程。</p>

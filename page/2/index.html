@@ -250,6 +250,218 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.deephug.wang/2019/12/09/OpenStack%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E5%92%8C%E5%90%84%E7%BB%84%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Genghao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Do what you want!">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/09/OpenStack%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84%E5%92%8C%E5%90%84%E7%BB%84%E4%BB%B6%E7%9A%84%E5%85%B3%E7%B3%BB/" itemprop="url">OpenStack简介及组件介绍</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-09T11:41:28+08:00">
+                2019-12-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OpenStack/" itemprop="url" rel="index">
+                    <span itemprop="name">OpenStack</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575879941397&di=8561cf8416d07d5af0aa406b95bb6957&imgtype=0&src=http%3A%2F%2Fupload.idcquan.com%2F2016%2F1122%2F1479779990934.jpg" alt></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>OpenStack是一个开源的云计算管理平台项目。由NASA(美国国家航空航天局)和Rackspace合作研发并发起，这些项目可以独立进行安装、启动和停止。一般使用它当作私有云平台。</p>
+<p>优点：扩展性好，安全性高，不会存在单点故障<br>缺点：环境部署复杂</p>
+<p>整个OpenStack是由控制节点、计算节点、网络节点、存储节点四大部分组成。</p>
+<p>含义：<br>控制节点：负责对其他节点的控制，包括虚拟机建立，网络分配，存储分配等;<br>计算节点：负责虚拟机的运行;<br>网络节点：负责对外网络和内网络之间的通信;<br>存储节点：负责对虚拟机的额外存储等;</p>
+<p><strong>控制节点架构</strong><br>1)管理支持服务<br>包含MySQL和RabbitMQ两个服务<br>MySQL:数据库作为基础/扩展服务产生的数据存放的地方<br>RabbitMQ:消息队列中间件作为其他组件提供了通信</p>
+<p>2)基础管理服务<br>包含Keystone,Glance,Nova,Neutron,DashBoard五个服务<br>Keystone：认证管理服务，提供了其余所有组件的认证信息/令牌的管理，创建，修改等等，使用MySQL作为统一的数据库<br>Glance：镜像管理服务，提供了对虚拟机部署的时候所能提供的镜像的管理，包含镜像的导入，格式，以及制作相应的模板<br>Nova：计算管理服务，提供了对计算节点的Nova的管理，使用Nova-API进行通信<br>Neutron：网络管理服务，提供了对网络节点的网络拓扑管理，同时提供Neutron在Horizon的管理面板<br>Horizon：控制台服务，提供了以Web的形式对所有节点的所有服务的管理，通常把该服务称为DashBoard</p>
+<p>3)扩展管理服务<br>包含Cinder，Swift，Trove，Heat，Centimeter五个服务<br>Cinder：提供管理存储节点的Cinder相关，同时提供Cinder在Horizon中的管理面板<br>Swift：提供管理存储节点的Swift相关，同时提供Swift在Horizon中的管理面板<br>Trove：提供管理数据库节点的Trove相关，同时提供Trove在Horizon中的管理面板<br>Heat：提供了基于模板来实现云环境中资源的初始化，依赖关系处理，部署等基本操作，也可以解决自动收缩,负载均衡等高级特性。<br>Centimeter：提供对物理资源以及虚拟资源的监控，并记录这些数据，对该数据进行分析，在一定条件下触发相应动作<br>控制节点一般来说只需要一个网络端口用于通信/管理各个节点</p>
+<hr>
+<p><strong>网络节点架构</strong><br>网络节点包含三个网络端口<br>eth0：用于与控制节点进行通信<br>eth1：用于与除了控制节点之外的计算/存储节点之间的通信<br>eth2：相当于一个池给虚拟机分配IP与相应网络比如大数据平台之间的通信</p>
+<p><strong>计算节点架构</strong><br>计算节点包含Nova，Neutron，Telemeter三个服务<br>1）基础服务<br>Nova：提供虚拟机的创建，运行，迁移，快照等各种围绕虚拟机的服务，并提供API与控制节点对接，由控制节点下发任务<br>Neutron：提供计算节点与网络节点之间的通信服务</p>
+<p>2）扩展服务<br>Telmeter：提供计算节点的监控代理，将虚拟机的情况反馈给控制节点，是Centimeter的代理服务<br>计算节点包含最少两个网络端口</p>
+<p><strong>存储节点架构</strong><br>存储节点包含Cinder，Swift等服务<br>Cinder：块存储服务，提供相应的块存储，简单来说，就是虚拟出一块磁盘，可以挂载到相应的虚拟机之上，不受文件系统等因素影响，对虚拟机来说，这个操作就像是新加了一块硬盘，可以完成对磁盘的任何操作，包括挂载，卸载，格式化，转换文件系统等等操作，大多应用于虚拟机空间不足的情况下的空间扩容等等</p>
+<p>Swift：对象存储服务，提供相应的对象存储，简单来说，就是虚拟出一块磁盘空间，可以在这个空间当中存放文件，也仅仅只能存放文件，不能进行格式化，转换文件系统，大多应用于云磁盘/文件</p>
+<h2 id="OpenStack各组件作用"><a href="#OpenStack各组件作用" class="headerlink" title="OpenStack各组件作用"></a>OpenStack各组件作用</h2><p><strong>一、Horizon- (Dashboard)模块</strong><br>作用：主要负责为Openstack用户提供UI服务，即管理控制台。在管理控制台的操作转换为后端API的调用。面向云管理员和普通用户。</p>
+<p><strong>二、Keystone-身份服务模块</strong><br>Keystone采用两种授权方式，一种基于用户名/密码，另一种基于令牌（Token）。<br>①几个基本概念：<br>用户：代表可以通过Keystone进行访问的人或程序，用户通过认证信息(如密码、API keys等)进行验证。<br>租户：它是各个服务中的一些可以访问的资源的集合<br>角色：它代表一组用户可以访问的资源的权限<br>②对访问请求的控制<br>访问的对象：<br>1.Service：即服务，如Nova、Glance、Swift。服务在KeyStone进行注册。<br>2.Endpoint：可以理解它是一个服务暴露出来的访问点。如果需要一个访问一个服务则必须知道他的endpoint。<br>3.Token：访问资源的令牌，相当于现实中的钥匙。具有时效性。<br>一段时间有效可能过一段时间就无效。<br>③Keystone提供的服务</p>
+<ol>
+<li>Identity服务验证了身份验证凭证。</li>
+<li>Token服务将会验证并管理用于验证请求身份的令牌</li>
+<li>Catalog服务提供了可用于端点发现的服务注册表，各类服务需现在KeyStone上注册。</li>
+<li>Policy服务暴露了一个基于规则的身份验证引擎。觉得哪些用户有访问控制的权限。</li>
+</ol>
+<p><strong>三、Nova—计算服务</strong><br>①Openstack的核心服务。主要功能包括：<br>1.实例生命周期管理<br>2.计算资源的管理<br>3.向外提供REST风格的API<br>这三个组件通过消息中间件rabbit MQ传输通信<br>②其中组件介绍<br>Nova弹性云（OpenStack计算部件）包含以下主要部分：<br>API Server（nova-API）位于表示层，用于接受外部请求<br>消息队列（rabbit-mq server）<br>运算工作站（nova-compute）负责虚拟机的创建和分配<br>网络控制器（nova-network）<br>卷管理（nova-volume）<br>调度器（nova-scheduler）调度如选择哪个主机创建VM<br>解释如下：<br>1）API服务器（nova-api）<br>API服务器提供了云设施与外界交互的接口，它是外界用户对云实施管理的唯一通道。通过使用web服务来调用各种EC2的API，接着API服务器便通过消息队列把请求送达至云内目标设施进行处理。作为对EC2-api的替代，用户也可以使用OpenStack的原生API，我们把它叫做“OpenStack API”。<br>2）消息队列（Rabbit MQ Server）<br>OpenStack内部在遵循AMQP（高级消息队列协议）的基础上采用消息队列进行通信。Nova对请求应答进行异步调用，当请求接收后便则立即触发一个回调。由于使用了异步通信，不会有用户的动作被长置于等待状态。例如，启动一个实例或上传一份镜像的过程较为耗时，API调用就将等待返回结果而不影响其它操作，在此异步通信起到了很大作用，使整个系统变得更加高效。<br>　3）调度器（nova-scheduler）　　<br>调度器负责把nova-API调用送达给目标。调度器以名为“nova-schedule”的守护进程方式运行，并根据调度算法从可用资源池中恰当地选择运算服务器。有很多因素都可以影响调度结果，比如负载、内存、子节点的远近、CPU架构等等。强大的是nova调度器采用的是可插入式架构。<br>目前nova调度器使用了几种基本的调度算法：<br>　　随机化：主机随机选择可用节点；<br>　　可用化：与随机相似，只是随机选择的范围被指定；<br>　　简单化：应用这种方式，主机选择负载最小者来运行实例。负载数据可以从别处获得，如负载均衡服务器。<br>4）运算工作站（nova-compute）<br>运算工作站的主要任务是管理实例的整个生命周期。他们通过消息队列接收请求并执行，从而对实例进行各种操作。在典型实际生产环境下，会架设许多运算工作站，根据调度算法，一个实例可以在可用的任意一台运算工作站上部署。<br>　5）网络控制器（nova-network）<br>网络控制器处理主机的网络配置，例如IP地址分配，配置项目VLAN，设定安全群组以及为计算节点配置网络。<br>　6）卷工作站（nova-volume）　<br>卷工作站管理基于LVM的 实例卷，它能够为一个实例创建、删除、附加卷，也可以从一个实例中分离卷。卷管理为何如此重要？因为它提供了一种保持实例持续存储的手段，比如当结束一个 实例后，根分区如果是非持续化的，那么对其的任何改变都将丢失。可是，如果从一个实例中将卷分离出来，或者为这个实例附加上卷的话，即使实例被关闭，数据 仍然保存其中。这些数据可以通过将卷附加到原实例或其他实例的方式而重新访问。<br>因此，为了日后访问，重要数据务必要写入卷中。这种应用对于数据服务器实例的存储而言，尤为重要。</p>
+<p><strong>四、Glance—镜像服务</strong><br>主要功能：</p>
+<ol>
+<li>提供虚拟机镜像的存储、查询和检索服务。</li>
+<li>为Nova组件提供服务。</li>
+<li>依赖于存储服务和数据库。<br>Glance构件：<br>1）Glance-API：<br>　 主要负责接收响应镜像管理命令的Restful请求，分析消息请求信息并分发其所带的命令（如新增，删除，更新等）。默认绑定端口是9292。<br>2）Glance-Registry：<br>　　主要负责接收响应镜像元数据命令的Restful请求。分析消息请求信息并分发其所带的命令（如获取元数据，更新元数据等）。默认绑定的端口是9191。</li>
+</ol>
+<p><strong>五、Swift—对象存储服务</strong><br>主要功能：提供高可用分布式对象存储服务。<br>主要特点：无限可扩展，并且没有单点故障。不用担心存储的对象意外丢失，因为会有其他的备份。</p>
+<p><strong>六、Cinder-块存储服务</strong><br>主要功能：快速管理所有的块存储设备，为VM服务。<br>总结“对象存储服务”和“块存储服务”区别：<br>块存储服务：是本地的，它只能挂靠在VM上使用<br>对象存储服务：主要存取分布式对象，在任意地方都可以发起请求去存储对象。</p>
+<p><strong>七、Neutron—网络服务</strong><br>主要功能：</p>
+<ol>
+<li>提供云计算环境下的虚拟网络功能。</li>
+<li>给每个租户独立的网络环境。</li>
+</ol>
+<p><strong>八、Openstack各组件之间的关系</strong><br><img src="https://img2018.cnblogs.com/blog/1311506/201809/1311506-20180928193331112-1621290982.png" alt></p>
+<hr>
+<h2 id="虚拟机启动过程"><a href="#虚拟机启动过程" class="headerlink" title="虚拟机启动过程"></a>虚拟机启动过程</h2><p>1)界面或者通过命令行向keystone获取认证信息。<br>2)keystone通过用户请求认证信息，并生成auth-token返回给对应的认证请求。<br>3)界面或命令行通过向nova-api发送一个请求.(携带auth-token)<br>4)nova-api接受请求后向keystone发送认证请求，查看token是否为有效用户和token。<br>5)keystone验证token是否有效，如有效则返回有效的认证和对应的角色.<br>6)通过认证后nova-api和数据库通讯。<br>7)初始化新建虚拟机的数据库记录。<br>8)nova-api通过rpc.call向nova-scheduler请求是否有创建虚拟机的资源(Host ID)。<br>9)nova-scheduler进程侦听消息队列，获取nova-api的请求。<br>10)nova-scheduler通过查询nova数据库中计算资源的情况，并通过调度算法计算符合虚拟机创建需要的主机。<br>11)对于有符合虚拟机创建的主机，nova-scheduler更新数据库中虚拟机对应的物理主机信息。<br>12)nova-scheduler通过rpc.cast向nova-compute发送对应的创建虚拟机请求的消息。<br>13)nova-compute会从对应的消息队列中获取创建虚拟机请求的消息。<br>14)nova-compute通过rpc.call向nova-conductor请求获取虚拟机消息。<br>15)nova-conductor从消息队队列中拿到nova-compute请求消息。<br>16)nova-conductor根据消息查询虚拟机对应的信息。<br>17)nova-conductor从数据库中获得虚拟机对应信息。<br>18)nova-conductor把虚拟机信息通过消息的方式发送到消息队列中。<br>19)nova-compute从对应的消息队列中获取虚拟机信息消息。<br>20)nova-compute通过keystone的RESTfull API拿到认证的token，并通过HTTP请求glance-api获取创建虚拟机所需要镜像。<br>21)glance-api向keystone认证token是否有效，并返回验证结果。<br>22)token验证通过，nova-compute获得虚拟机镜像信息(URL)。<br>23)nova-compute通过keystone的RESTfull API拿到认证k的token，并通过HTTP请求neutron-server获取创建虚拟机所需要的网络信息。<br>24)neutron-server向keystone认证token是否有效，并返回验证结果。<br>25)token验证通过，nova-compute获得虚拟机网络信息。<br>26)nova-compute通过keystone的RESTfull API拿到认证的token，并通过HTTP请求cinder-api获取创建虚拟机所需要的持久化存储信息。<br>27)cinder-api向keystone认证token是否有效，并返回验证结果。<br>28)token验证通过，nova-compute获得虚拟机持久化存储信息。<br>29)nova-compute根据instance的信息调用配置的虚拟化驱动来创建虚拟机。</p>
+<p>参考：<br><a href="https://blog.csdn.net/sl_world/article/details/78782019" target="_blank" rel="noopener">https://blog.csdn.net/sl_world/article/details/78782019</a><br><a href="https://www.cnblogs.com/xiugeng/p/9668102.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiugeng/p/9668102.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.deephug.wang/2019/12/07/Centos-Bond-Network/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -478,7 +690,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -547,7 +759,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
